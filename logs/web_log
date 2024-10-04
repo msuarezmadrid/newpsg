@@ -1,0 +1,294 @@
+[2024-10-01 17:16:01] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:16:01] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:16:01] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:16:01] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:16:01] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:19:07] : [login] INICIA  
+[2024-10-01 17:19:07] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:19:07] : [exeQuery] INICIA  
+[2024-10-01 17:19:07] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:19:07] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:19:07] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:19:07] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:19:07] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:21:31] : [login] INICIA  
+[2024-10-01 17:21:31] : [login] redireccionando..  
+[2024-10-01 17:21:31] : [login] INICIA  
+[2024-10-01 17:21:31] : [login] redireccionando..  
+[2024-10-01 17:21:37] : [login] INICIA  
+[2024-10-01 17:21:37] : [login] redireccionando..  
+[2024-10-01 17:21:37] : [login] INICIA  
+[2024-10-01 17:21:37] : [login] redireccionando..  
+[2024-10-01 17:21:40] : [login] INICIA  
+[2024-10-01 17:21:40] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:21:40] : [exeQuery] INICIA  
+[2024-10-01 17:21:40] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:21:40] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:21:40] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:21:40] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:21:40] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:21:40] : [login] INICIA  
+[2024-10-01 17:21:40] : [login] redireccionando..  
+[2024-10-01 17:21:40] : [login] INICIA  
+[2024-10-01 17:21:40] : [login] redireccionando..  
+[2024-10-01 17:22:26] : [login] INICIA  
+[2024-10-01 17:22:26] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:22:27] : [exeQuery] INICIA  
+[2024-10-01 17:22:27] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:22:27] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:22:27] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:22:27] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:22:27] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:22:27] : [login] INICIA  
+[2024-10-01 17:22:27] : [login] request->[] 
+[2024-10-01 17:22:27] : [exeQuery] INICIA  
+[2024-10-01 17:22:27] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:22:27] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:22:27] : [exeQuery] Query->[SELECT * FROM users WHERE USER='' AND CLAVE='d41d8cd98f00b204e9800998ecf8427e' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:22:27] : [login] Resultset res->false 
+[2024-10-01 17:22:27] : [login] Query no devolvio resultset [SELECT * FROM users WHERE USER='' AND CLAVE='d41d8cd98f00b204e9800998ecf8427e' AND ELIMINADO IS NULL ]  
+[2024-10-01 17:22:27] : [login] INICIA  
+[2024-10-01 17:22:27] : [login] redireccionando..  
+[2024-10-01 17:22:34] : [login] INICIA  
+[2024-10-01 17:22:34] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:22:34] : [exeQuery] INICIA  
+[2024-10-01 17:22:34] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:22:34] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:22:34] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:22:34] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:22:34] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:22:34] : [login] INICIA  
+[2024-10-01 17:22:34] : [login] request->[] 
+[2024-10-01 17:22:34] : [exeQuery] INICIA  
+[2024-10-01 17:22:34] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:22:34] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:22:34] : [exeQuery] Query->[SELECT * FROM users WHERE USER='' AND CLAVE='d41d8cd98f00b204e9800998ecf8427e' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:22:34] : [login] Resultset res->false 
+[2024-10-01 17:22:34] : [login] Query no devolvio resultset [SELECT * FROM users WHERE USER='' AND CLAVE='d41d8cd98f00b204e9800998ecf8427e' AND ELIMINADO IS NULL ]  
+[2024-10-01 17:22:34] : [login] INICIA  
+[2024-10-01 17:22:34] : [login] redireccionando..  
+[2024-10-01 17:23:26] : [logOut] INICIA  
+[2024-10-01 17:23:26] : [login] INICIA  
+[2024-10-01 17:23:26] : [login] redireccionando..  
+[2024-10-01 17:25:29] : [login] INICIA  
+[2024-10-01 17:25:29] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:25:29] : [exeQuery] INICIA  
+[2024-10-01 17:25:29] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:25:29] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:25:29] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:25:29] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:25:29] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:31:11] : [logOut] INICIA  
+[2024-10-01 17:31:11] : [login] INICIA  
+[2024-10-01 17:31:11] : [login] redireccionando..  
+[2024-10-01 17:31:26] : [login] INICIA  
+[2024-10-01 17:31:26] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:31:26] : [exeQuery] INICIA  
+[2024-10-01 17:31:26] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:31:26] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:31:26] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:31:26] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:31:26] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 17:35:09] : [logOut] INICIA  
+[2024-10-01 17:35:09] : [login] INICIA  
+[2024-10-01 17:35:09] : [login] redireccionando..  
+[2024-10-01 17:35:14] : [login] INICIA  
+[2024-10-01 17:35:14] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 17:35:14] : [exeQuery] INICIA  
+[2024-10-01 17:35:14] : [abrirConexionLocal] INICIA  
+[2024-10-01 17:35:14] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 17:35:14] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 17:35:14] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 17:35:14] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 21:22:03] : [logOut] INICIA  
+[2024-10-01 21:22:03] : [login] INICIA  
+[2024-10-01 21:22:03] : [login] redireccionando..  
+[2024-10-01 21:22:09] : [login] INICIA  
+[2024-10-01 21:22:09] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 21:22:09] : [exeQuery] INICIA  
+[2024-10-01 21:22:09] : [abrirConexionLocal] INICIA  
+[2024-10-01 21:22:09] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 21:22:09] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 21:22:09] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 21:22:09] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 21:23:59] : [logOut] INICIA  
+[2024-10-01 21:23:59] : [login] INICIA  
+[2024-10-01 21:23:59] : [login] redireccionando..  
+[2024-10-01 21:24:05] : [login] INICIA  
+[2024-10-01 21:24:05] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 21:24:05] : [exeQuery] INICIA  
+[2024-10-01 21:24:05] : [abrirConexionLocal] INICIA  
+[2024-10-01 21:24:05] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 21:24:05] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 21:24:06] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 21:24:06] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:03:19] : [logOut] INICIA  
+[2024-10-01 22:04:05] : [logOut] INICIA  
+[2024-10-01 22:05:49] : [logOut] INICIA  
+[2024-10-01 22:05:55] : [login] INICIA  
+[2024-10-01 22:05:55] : [login] redireccionando..  
+[2024-10-01 22:06:52] : [login] INICIA  
+[2024-10-01 22:06:52] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:06:52] : [exeQuery] INICIA  
+[2024-10-01 22:06:52] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:06:52] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:06:52] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:06:52] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:06:52] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:12:22] : [login] INICIA  
+[2024-10-01 22:12:22] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:12:22] : [exeQuery] INICIA  
+[2024-10-01 22:12:22] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:12:22] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:12:22] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:12:22] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:12:22] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:13:26] : [login] INICIA  
+[2024-10-01 22:13:26] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:13:26] : [exeQuery] INICIA  
+[2024-10-01 22:13:26] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:13:26] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:13:26] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:13:26] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:13:26] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:14:27] : [login] INICIA  
+[2024-10-01 22:14:27] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:14:27] : [exeQuery] INICIA  
+[2024-10-01 22:14:27] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:14:27] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:14:27] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:14:27] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:14:27] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:33:33] : [login] INICIA  
+[2024-10-01 22:33:33] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:33:33] : [exeQuery] INICIA  
+[2024-10-01 22:33:33] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:33:33] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:33:33] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:33:33] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:33:33] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:35:02] : [logOut] INICIA  
+[2024-10-01 22:35:02] : [login] INICIA  
+[2024-10-01 22:35:02] : [login] redireccionando..  
+[2024-10-01 22:35:11] : [login] INICIA  
+[2024-10-01 22:35:11] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:35:11] : [exeQuery] INICIA  
+[2024-10-01 22:35:11] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:35:11] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:35:11] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:35:11] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:35:11] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 22:52:33] : [logOut] INICIA  
+[2024-10-01 22:52:33] : [login] INICIA  
+[2024-10-01 22:52:33] : [login] redireccionando..  
+[2024-10-01 22:52:38] : [login] INICIA  
+[2024-10-01 22:52:38] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 22:52:38] : [exeQuery] INICIA  
+[2024-10-01 22:52:38] : [abrirConexionLocal] INICIA  
+[2024-10-01 22:52:38] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 22:52:38] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 22:52:38] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 22:52:38] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 23:05:34] : [login] INICIA  
+[2024-10-01 23:05:34] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:05:34] : [exeQuery] INICIA  
+[2024-10-01 23:05:34] : [abrirConexionLocal] INICIA  
+[2024-10-01 23:05:34] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 23:05:34] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 23:05:34] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 23:05:34] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 23:06:08] : [logOut] INICIA  
+[2024-10-01 23:06:08] : [login] INICIA  
+[2024-10-01 23:06:08] : [login] redireccionando..  
+[2024-10-01 23:06:23] : [login] INICIA  
+[2024-10-01 23:06:23] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:06:23] : [exeQuery] INICIA  
+[2024-10-01 23:06:23] : [abrirConexionLocal] INICIA  
+[2024-10-01 23:06:23] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 23:06:23] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 23:06:23] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 23:06:23] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 23:10:13] : [logOut] INICIA  
+[2024-10-01 23:10:13] : [login] INICIA  
+[2024-10-01 23:10:13] : [login] redireccionando..  
+[2024-10-01 23:10:18] : [login] INICIA  
+[2024-10-01 23:10:18] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:10:18] : [exeQuery] INICIA  
+[2024-10-01 23:10:18] : [abrirConexionLocal] INICIA  
+[2024-10-01 23:10:18] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 23:10:18] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 23:10:18] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 23:10:18] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 23:10:33] : [logOut] INICIA  
+[2024-10-01 23:10:33] : [login] INICIA  
+[2024-10-01 23:10:33] : [login] redireccionando..  
+[2024-10-01 23:12:12] : [login] INICIA  
+[2024-10-01 23:12:12] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:12:12] : [exeQuery] INICIA  
+[2024-10-01 23:12:12] : [abrirConexionLocal] INICIA  
+[2024-10-01 23:12:12] : [abrirConexionLocal] Conexion OK  
+[2024-10-01 23:12:12] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-01 23:12:12] : [login] Resultset res->[{"ID":"1","USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":"1","MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":"2","INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-01 23:12:12] : [login] SESSION->{"id":"1","user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":"2"} 
+[2024-10-01 23:13:41] : [logOut] INICIA  
+[2024-10-01 23:13:41] : [login] INICIA  
+[2024-10-01 23:13:41] : [login] redireccionando..  
+[2024-10-01 23:22:22] : [login] INICIA  
+[2024-10-01 23:33:18] : [login] INICIA  
+[2024-10-01 23:35:41] : [login] INICIA  
+[2024-10-01 23:42:48] : [login] INICIA  
+[2024-10-01 23:51:09] : [login] INICIA  
+[2024-10-01 23:51:09] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:52:12] : [login] INICIA  
+[2024-10-01 23:52:12] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:52:56] : [login] INICIA  
+[2024-10-01 23:52:56] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:54:41] : [login] INICIA  
+[2024-10-01 23:54:41] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-01 23:56:21] : [login] INICIA  
+[2024-10-01 23:56:21] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 08:54:31] : [login] INICIA  
+[2024-10-02 08:54:31] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 08:56:57] : [login] INICIA  
+[2024-10-02 08:56:57] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:45:58] : [login] INICIA  
+[2024-10-02 13:45:58] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:45:58] : [exeQuery] INICIA  
+[2024-10-02 13:45:58] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 13:45:58] : [cConnMysql] INICIA  
+[2024-10-02 13:50:12] : [login] INICIA  
+[2024-10-02 13:50:12] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:50:12] : [exeQuery] INICIA  
+[2024-10-02 13:50:12] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 13:50:12] : [cConnMysql] INICIA  
+[2024-10-02 13:50:41] : [login] INICIA  
+[2024-10-02 13:50:41] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:50:41] : [exeQuery] INICIA  
+[2024-10-02 13:50:41] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 13:50:41] : [cConnMysql] INICIA  
+[2024-10-02 13:51:45] : [login] INICIA  
+[2024-10-02 13:51:45] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:51:45] : [exeQuery] INICIA  
+[2024-10-02 13:51:45] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 13:51:45] : [cConnMysql] INICIA  
+[2024-10-02 13:58:39] : [login] INICIA  
+[2024-10-02 13:58:39] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 13:58:39] : [exeQuery] INICIA  
+[2024-10-02 13:58:39] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 13:58:39] : [cConnMysql] INICIA  
+[2024-10-02 13:58:39] : [cConnMysql] ERROR->Msg->[1049] Unknown database 'local' 
+[2024-10-02 14:06:44] : [login] INICIA  
+[2024-10-02 14:06:44] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 14:06:44] : [exeQuery] INICIA  
+[2024-10-02 14:06:44] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 14:06:44] : [cConnMysql] INICIA  
+[2024-10-02 14:06:44] : [cConnMysql] Conexion OK  
+[2024-10-02 14:06:44] : [login] Resultset res->[{"ID":1,"USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":1,"MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":2,"INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-02 14:07:57] : [login] INICIA  
+[2024-10-02 14:07:57] : [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
+[2024-10-02 14:07:57] : [exeQuery] INICIA  
+[2024-10-02 14:07:57] : [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-10-02 14:07:57] : [cConnMysql] INICIA  
+[2024-10-02 14:07:57] : [cConnMysql] Conexion OK  
+[2024-10-02 14:07:57] : [login] Resultset res->[{"ID":1,"USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":1,"MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":2,"INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
+[2024-10-02 14:07:57] : [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2} 
