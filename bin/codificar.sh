@@ -13,5 +13,5 @@ if [ -z ${var} ]; then
 else 
 	#echo ${var} | base64 
 	php -r "echo base64_encode('${var}').'  ';"
-	
+	php -r "echo '\n'"
 fi

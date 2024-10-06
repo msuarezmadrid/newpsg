@@ -6,7 +6,7 @@
     class classFunciones {
 		private $title = "PSG Redes";
         private $cConfig;
-		private $favicon = "./img/favicon.png";
+		private $favicon = "./img/favicon.png"; 
 
         public function __construct(){
             $this->cConfig = new classConfig();

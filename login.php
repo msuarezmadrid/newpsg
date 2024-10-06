@@ -18,7 +18,7 @@
 	}
 ?>
 <!DOCTYPE html>
-<html >
+<html > 
     <head>
         <title><?php echo $title; ?> - Entel</title>
         <?php include("./lib/header.php"); ?>

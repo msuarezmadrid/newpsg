@@ -259,7 +259,7 @@
 				$this->my_log("[". __FUNCTION__ ."] ERROR [" .$e->getMessage(). "]" );
 				return false;
 			}
-		}*/
+		} */
 
 
 		function login($status, $exeLogin=null){

@@ -30,11 +30,11 @@
 		$relative_class = substr($class, $len);
 		$file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
 
-		error_log("Autoloader: Buscando la clase $class en $file");
+		error_log("Autoloader: Buscando la clase $class en $file ");
 
 		if (file_exists($file)) {
 			require $file;
 		} else {
-			error_log("Autoloader: No se encontro el archivo para la clase $class en $file");
+			error_log("Autoloader: No se encontro el archivo para la clase $class en $file ");
 		}
 	});
