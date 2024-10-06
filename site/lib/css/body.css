@@ -1,0 +1,63 @@
+/* Estilos para la sidebar */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px; /* Ajusta este valor según la altura de tu navbar */
+    left: 0;
+    background-color: #f8f9fa;
+    padding-top: 1px;
+    transition: 0.3s;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    font-size: x-small;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+.main-content {
+    margin-left: 220px;
+    margin-top: -20px;
+    padding: -20px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar-hidden {
+    width: 0;
+    overflow: hidden;
+}
+
+.main-content-expanded {
+    margin-left: 10px;
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-header h6 {
+    margin: 0;
+    padding-left: 30px;
+    line-height: 1.5;
+}
+
+
+.mainPanel p {
+    font-size: x-small;
+}
