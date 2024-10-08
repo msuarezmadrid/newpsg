@@ -1,9 +1,5 @@
 <?php 
     $credentials = [
-        "logs" => [
-            "tmp_log" => "/tmp/web_log",
-            // "tmp_log" => "C:\\xampp\htdocs\\newPSG\logs\web_log",
-        ],
         "local" => [
             "user" => "cm9vdA==",
             //"pass" => "TXN1NHIzei4sMTk4NQ==",

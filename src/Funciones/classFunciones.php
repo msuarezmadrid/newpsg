@@ -6,11 +6,31 @@
     class classFunciones {
 		private $title = "PSG Redes";
         private $cConfig;
-		private $favicon = "./img/favicon.png"; 
+		private $favicon = "favicon.png"; 
+		private $siteHeader = "header.php";
+		private $bodyCss = "body.css";
+		private $functions = "functions.js";
 
         public function __construct(){
+			$this->favicon = BASE_URL . "/img/" . $this->favicon;
+			$this->siteHeader = BASE_PATH . "/site/lib/" . $this->siteHeader;
+			$this->bodyCss = BASE_URL . "/site/lib/css/" . $this->bodyCss;
+			$this->functions = BASE_URL . "/site/lib/js/" . $this->functions;
+			
             $this->cConfig = new classConfig();
         }
+		
+		function siteHeader(){
+			return $this->siteHeader;
+		}
+		
+		function bodyCss(){
+			return $this->bodyCss;
+		}
+		
+		function functions(){
+			return $this->functions;
+		}
 
 		function favicon(){
 			return $this->favicon;

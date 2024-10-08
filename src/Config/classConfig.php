@@ -9,10 +9,12 @@
 		private $queries;
 		private $activeConn;
 		private $oLinkId;
+		private $logs;
 		
 		public function __construct(){
 			$this->credentials = BASE_PATH . "/src/Config/credentials.php";
 			$this->queries = BASE_PATH . "/site/lib/querys.php";
+			$this->logs = BASE_PATH . "/logs/web_log";
 			try {
 				# ARCHIVO CREDENCIALES 
 				if( !file_exists($this->credentials) ){
@@ -270,11 +272,11 @@
 					header("Location: login.php");
 				}
 				else{
-					$this->my_log("[". __FUNCTION__ ."] request->" .json_encode($_REQUEST) );
 					$params = [
 						":user" => $_REQUEST['txtUsuario'],
 						":pass" => md5($_REQUEST['txtPwd'])
 					];
+					$this->my_log("[". __FUNCTION__ ."] Credenciales ingresadas : " .json_encode($params) );
 
 					$sql=$this->getQuery("qry_login", $params);
 					$res = $this->exeQuery($sql, $this->local); 
@@ -324,17 +326,16 @@
 		 * var $str 
 		 **/
 		function my_log($str){
+			global $logs;
 			try {
 				$date = new \DateTime(); # clase DateTime global de PHP 
-				$config = $this->getConfig();
 				$ahora=$date->format('Y-m-d H:i:s');
-				$logFile=fopen($config['logs']['tmp_log'], 'a+');
-				$string="[$ahora] : $str ";
-				fwrite($logFile, $string."\r\n");
+				$logFile=fopen($this->logs, 'a+');
+				$string="[$ahora] $str \n";
+				fwrite($logFile, $string);
 				fclose($logFile);
 			} catch (\Exception $e) {
-				error_log("[".$e->getMessage()."]");
-				return false;
+				error_log(__FUNCTION__." ERROR [".$e->getMessage()."] ");
 			}
 			
 		}

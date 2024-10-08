@@ -5,13 +5,16 @@
     $cCfn = new classFunciones();
     $cCfn->checkSession();
     $favicon=$cCfn->favicon();
+    $header=$cCfn->siteHeader();
+	$bodyCss=$cCfn->bodyCss();
+	$functions=$cCfn->functions();
     $title=$cCfn->title();
 ?>
 <!DOCTYPE html>
 <html >
     <head>
         <title><?php echo $title; ?> - Entel</title>
-        <?php include("./lib/header.php"); ?> 
+        <?php include($header); ?> 
     </head>
     <body >
         <!-- Navbar -->
