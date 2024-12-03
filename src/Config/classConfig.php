@@ -5,11 +5,12 @@
 		
 		private $credentials;
 		private $_config;
-		private $local = "local";
 		private $queries;
 		private $activeConn;
 		private $oLinkId;
 		private $logs;
+		
+		public $local = "local"; # conectividad a BD 
 		
 		public function __construct(){
 			$this->credentials = BASE_PATH . "/src/Config/credentials.php";
@@ -44,10 +45,15 @@
 		}
 
 		function getQuery($name, $params=[]){
+			$this->activeConn = $this->cConnMysql();
 			$query=$this->queries[$name] ?? null;
 			if ($query && !empty($params)) {
+				uksort(	$params, function($a, $b){ 
+					return strlen($b) - strlen($a); 
+				});
 				foreach ($params as $key => $value) {
-					$query = str_replace($key, $value, $query);
+					$escaped_value = $this->activeConn->real_escape_string($value);
+					$query = str_replace($key, $escaped_value, $query);
 				}
 			}
 			return $query;
@@ -160,12 +166,24 @@
 					throw new \Exception(" Msg->[".$this->activeConn->errno."] ".$this->activeConn->error );
 				}
 				
-				$stmt->execute();
+				// $stmt->execute();
+				// Ejecutamos la consulta 
+				if ( !$stmt->execute() ){
+					throw new \Exception(" Msg->[".$stmt->errno."] ".$stmt->error );
+				}
 
 				if( stripos($qry, 'SELECT') === 0 ){
 					$result=$stmt->get_result();
+					if( $result === false ){ 
+						throw new \Exception(" Msg->[".$stmt->errno."] ".$stmt->error );
+					}
 					$row=$result->fetch_all(MYSQLI_ASSOC);
 					$stmt->close(); # CERRAMOS CONEXION 
+					return $row;
+				}elseif( stripos($qry, 'INSERT') === 0 ){
+					$row["affected"] = $stmt->affected_rows;
+					$row["insert_id"] = $this->activeConn->insert_id;
+					$stmt->close(); // CERRAMOS CONEXION 
 					return $row;
 				}
 				else{
@@ -226,44 +244,8 @@
 			## CERRAMOS LA CONEXION 
 			oci_close($this->oLinkId);
 		}
-
-
-		/*function register($data){
-			$this->my_log("[". __FUNCTION__ ."] INICIA " );
-			try {
-				if( !empty($data) ){
-					$rut=$data['txtRut'];
-					$nombre=$data['txtNombre'];
-					$apellido=$data['txtApellidos'];
-					$user=$data['txtUsuario'];
-					$movil=$data['txtMovil'];
-					$pass=md5($data['txtPwd']);
-					$email=( isset($data['txtEmail']) ? $data['txtEmail'] : null );
-					$empresa=( isset($data['cbEmpresa']) ? $data['cbEmpresa'] : null );
-				}
-				else{
-					throw new \Exception("Msg-> No se recibieron los datos. Array data vacio.");
-				}
-				
-				$sql="INSERT INTO users ( rut, username, password, nombre, apellido, movil, correo, enterprise_id, created ) 
-				VALUES ( '$rut', '$user', '$pass', '$nombre', '$apellido', $movil, '$email', $empresa, NOW() ) ";
-				// $this->my_log("[". __FUNCTION__ ."] sql-> " .$sql );
-				$result = $this->exeQuery($sql, $this->local_db, "localhost");
-				// $this->my_log("[". __FUNCTION__ ."] result->[" .json_encode($result). "]" );
-				if( !empty($result) && $result['affected']==1){
-					return 200;
-				}
-				else{
-					return false;
-				}
-
-			} catch (\Exception $e) {
-				$this->my_log("[". __FUNCTION__ ."] ERROR [" .$e->getMessage(). "]" );
-				return false;
-			}
-		} */
-
-
+		
+		
 		function login($status, $exeLogin=null){
 			$this->my_log("[". __FUNCTION__ ."] INICIA " );
 			try {
@@ -296,6 +278,12 @@
 						$_SESSION['correo'] = $res[0]['CORREO'];
 						$_SESSION['movil'] = $res[0]['MOVIL'];
 						$_SESSION['enterprise_id'] = $res[0]['ID_EMPRESA'];
+						$_SESSION['perfil_adc'] = $res[0]['PERFIL_ADC'];
+						$_SESSION['cargo'] = $res[0]['CARGO'];
+						$_SESSION['crear_tp'] = $res[0]['CREAR_TP'];
+						$_SESSION['dia_habil'] = $res[0]['DIA_HABIL'];
+						$_SESSION['horario_habil'] = $res[0]['HORARIO_HABIL'];
+						$_SESSION['origen'] = $res[0]['ORIGEN'];
 						
 						$this->my_log("[". __FUNCTION__ ."] SESSION->" .json_encode($_SESSION) );
 						
@@ -314,7 +302,6 @@
 
 		function logOut(){
 			$this->my_log("[". __FUNCTION__ ."] INICIA " );
-			
 			if( isset($_SESSION['user']) ){
 				session_destroy();
 				header("Location: index.php");

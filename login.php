@@ -12,11 +12,13 @@
 	$politicas=null;
     if( isset($_POST["ingresarLogin"]) && $_POST["ingresarLogin"] == "si" ){
 		$msje = $cCfn->login( true, true );
+		echo "<script>sessionStorage.removeItem('modalShown');</script>"; # PARA LIMPIAR LA VAR DE SESSION DE JAVASCRIPT 
     }
 	if( $msje === "Empty" ) {
 		$class="alert alert-danger";
 		$msje="ERROR! Datos incorrectos o inexistentes! ";
 	}
+	$modalInfo=$cCfn->getInfoModalLogin(); # POLITICAS DE SEGURIDAD 
 ?>
 <!DOCTYPE html>
 <html > 
@@ -24,6 +26,7 @@
         <title><?php echo $title; ?> - Entel</title>
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/png">
         <?php include("./lib/header.php"); ?>
+		<script>sessionStorage.clear();</script>
     </head>
     <body >
         <div class="container-fluid">
@@ -82,7 +85,7 @@
 								<div class="panel-body">
 									Recupere su clave en su m&oacute;vil. (por SMS)<br/>
 									Ingrese su nombre de usuario. (solo usuarios registrados recibir&aacute;n una clave temporal que caducar&aacute; en 24 horas)<br/>
-									Recuerde que al generar la nueva clave, esta debe cumplir con las <a href="#" >pol&iacute;ticas de seguridad</a>.<br/>
+									Recuerde que al generar la nueva clave, esta debe cumplir con las <a href="#" data-toggle="modal" data-target="#modalPoliticas" >pol&iacute;ticas de seguridad</a>.<br/>
 								</div>
 								<div class="panel-footer">
 									<form action="#" method="POST" class="form-inline">
@@ -102,21 +105,12 @@
             </div>
         </div>
 
-         <!-- MODAL POLITICAS -->
-         <div id='modalPoliticas' class='modal fade' role='dialog'>
-            <div class='modal-dialog '>
-                <div class='modal-content'>
-                    <div class='modal-header'>
-                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                        <h4 class='modal-title'>Pol&iacute;ticas de seguridad Entel</h4>
-                    </div>
-                    <div class='modal-body'>
-                        <?php echo $politicas; ?>
-                    </div>
-                    <div class='modal-footer'></div>
-                </div>
-            </div>
-        </div>
+        <!-- MODAL POLITICAS -->
+		<div id='modalPoliticas' class='modal fade' role='dialog'>
+			<div class='modal-dialog ' id='modalDialog' role='document'>
+				<div class='modal-content' id='modalContent' ><?php echo $modalInfo; ?></div>
+			</div>
+		</div>
         <!-- FIN MODAL -->
     </body>
     

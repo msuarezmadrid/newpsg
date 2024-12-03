@@ -7,5 +7,6 @@
     $cCfn->checkSession();
 ?>
 	<div class="mainLog">
-		<h3 style="text-align:center;">Log de Alarmas</h3>
+		<h3 style="text-align:center;">Panel de Alarmas</h3>
+		
 	</div>

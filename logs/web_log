@@ -1,27 +1,1047 @@
-[2024-10-07 17:05:39] [login] INICIA  [2024-10-07 17:05:39] [login] request->{"txtUsuario":"o&m_allwarea","txtPwd":"entel123","ingresarLogin":"si"} [2024-10-07 17:05:39] [exeQuery] INICIA  [2024-10-07 17:05:39] [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allwarea' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] [2024-10-07 17:05:39] [cConnMysql] INICIA  [2024-10-07 17:05:39] [cConnMysql] Conexion OK  [2024-10-07 17:05:39] [login] Resultset res->[] [2024-10-07 17:05:39] [login] Query no devolvio resultset [SELECT * FROM users WHERE USER='o&m_allwarea' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ]  [2024-10-07 17:06:01] [login] INICIA  
-[2024-10-07 17:06:01] [login] request->{"txtUsuario":"o&m_allwarea","txtPwd":"entel123","ingresarLogin":"si"} 
-[2024-10-07 17:06:01] [exeQuery] INICIA  
-[2024-10-07 17:06:01] [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allwarea' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
-[2024-10-07 17:06:01] [cConnMysql] INICIA  
-[2024-10-07 17:06:01] [cConnMysql] Conexion OK  
-[2024-10-07 17:06:01] [login] Resultset res->[] 
-[2024-10-07 17:06:01] [login] Query no devolvio resultset [SELECT * FROM users WHERE USER='o&m_allwarea' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ]  
-[2024-10-07 17:12:46] [login] INICIA  
-[2024-10-07 17:12:46] [login] request->{"txtUsuario":"o&m_allware","txtPwd":"entel123","ingresarLogin":"si"} 
-[2024-10-07 17:12:46] [exeQuery] INICIA  
-[2024-10-07 17:12:46] [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
-[2024-10-07 17:12:46] [cConnMysql] INICIA  
-[2024-10-07 17:12:46] [cConnMysql] Conexion OK  
-[2024-10-07 17:12:46] [login] Resultset res->[{"ID":1,"USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":1,"MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":2,"INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
-[2024-10-07 17:12:46] [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2} 
-[2024-10-07 17:17:31] [logOut] INICIA  
-[2024-10-07 17:17:31] [login] INICIA  
-[2024-10-07 17:17:31] [login] redireccionando..  
-[2024-10-07 19:57:18] [login] INICIA  
-[2024-10-07 19:57:18] [login] Credenciales ingresadas : {":user":"o&m_allware",":pass":"86eb57172b00a4b1e1c92cd8385153c4"} 
-[2024-10-07 19:57:18] [exeQuery] INICIA  
-[2024-10-07 19:57:18] [exeQuery] Query->[SELECT * FROM users WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
-[2024-10-07 19:57:18] [cConnMysql] INICIA  
-[2024-10-07 19:57:18] [cConnMysql] Conexion OK  
-[2024-10-07 19:57:18] [login] Resultset res->[{"ID":1,"USER":"o&m_allware","CLAVE":"86eb57172b00a4b1e1c92cd8385153c4","NOMBRE":"Soporte","APELLIDO":"Allware","PERFIL":1,"MOVIL":null,"CORREO":"soporte@allware.cl","ID_EMPRESA":2,"INGRESADO":"2024-09-30 21:23:36","ELIMINADO":null}] 
-[2024-10-07 19:57:18] [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2} 
+[2024-11-19 17:25:59] [getInfoModalLogin] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [exeQuery] INICIA  
+[2024-11-19 17:25:59] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [traePoliticas] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [exeQuery] INICIA  
+[2024-11-19 17:25:59] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [exeQuery] INICIA  
+[2024-11-19 17:25:59] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [exeQuery] INICIA  
+[2024-11-19 17:25:59] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:25:59] [exeQuery] INICIA  
+[2024-11-19 17:25:59] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 17:25:59] [cConnMysql] INICIA  
+[2024-11-19 17:25:59] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [getInfoModalLogin] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [exeQuery] INICIA  
+[2024-11-19 17:26:13] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [traePoliticas] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [exeQuery] INICIA  
+[2024-11-19 17:26:13] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [exeQuery] INICIA  
+[2024-11-19 17:26:13] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [exeQuery] INICIA  
+[2024-11-19 17:26:13] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:13] [exeQuery] INICIA  
+[2024-11-19 17:26:13] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 17:26:13] [cConnMysql] INICIA  
+[2024-11-19 17:26:13] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [login] INICIA  
+[2024-11-19 17:26:16] [login] Credenciales ingresadas : {":user":"o&m_allware",":pass":"86eb57172b00a4b1e1c92cd8385153c4"} 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT u.ID,u.USER,u.NOMBRE,u.APELLIDO,u.CORREO,u.MOVIL,u.ID_EMPRESA,p.PERFIL_ADC,p.CARGO,p.CREAR_TP,p.DIA_HABIL,p.HORARIO_HABIL,a.ORIGEN FROM intradb.users u INNER JOIN o_m.PERSONAL p ON p.ID = u.personal_id LEFT JOIN intradb.TP_AREA_ORIGEN a ON a.USUARIO = u.USER WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [login] Resultset res->[{"ID":1,"USER":"o&m_allware","NOMBRE":"Soporte","APELLIDO":"Allware","CORREO":"soporte@allware.cl","MOVIL":null,"ID_EMPRESA":2,"PERFIL_ADC":"NO","CARGO":"Externo","CREAR_TP":"NO","DIA_HABIL":null,"HORARIO_HABIL":null,"ORIGEN":"ALLWARE"}] 
+[2024-11-19 17:26:16] [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2,"perfil_adc":"NO","cargo":"Externo","crear_tp":"NO","dia_habil":null,"horario_habil":null,"origen":"ALLWARE"} 
+[2024-11-19 17:26:16] [getInfoModalLogin] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [traePoliticas] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getVacaciones] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getVacaciones] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT VACACIONES,TURNO FROM intradb.users U INNER JOIN o_m.PERSONAL P ON U.personal_id=P.ID  WHERE USER='o&m_allware' ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getTrabajos] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getTrabajos] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(PLANNED_ID)N FROM intradb.ASIGNACION_PLANNED A INNER JOIN intradb.PLANNED P ON A.PLANNED_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getProblemas] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getProblemas] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(P.ID)N FROM intradb.ASIGNACION A INNER JOIN intradb.PROBLEMA P ON A.PROBLEMA_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getTareas] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getTareas] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(T.ID)N FROM intradb.ASIGNACION_TAREA A INNER JOIN intradb.TAREA T ON A.TAREA_ID=T.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getBitacoras] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getBitacoras] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.BITACORA WHERE usr='o&m_allware' AND FIN IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getInventario] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getInventario] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(ID)N FROM o_m.INVENTARIO WHERE RESPONSABLE='o&m_allware' AND STATUS='ENVIADA' ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getMensajes] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getMensajes] user: o&m_allware  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.MESSAGE_QUEUE WHERE DESTINO='o&m_allware' AND RECIBIDO IS NULL ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [getInfoModalInicio] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [traePoliticas] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:16] [exeQuery] INICIA  
+[2024-11-19 17:26:16] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 17:26:16] [cConnMysql] INICIA  
+[2024-11-19 17:26:16] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [exeQuery] INICIA  
+[2024-11-19 17:26:21] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [exeQuery] INICIA  
+[2024-11-19 17:26:21] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [exeQuery] INICIA  
+[2024-11-19 17:26:21] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:26:21] [exeQuery] INICIA  
+[2024-11-19 17:26:21] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS nombreregion, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as elemento,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 17:26:21] [cConnMysql] INICIA  
+[2024-11-19 17:26:21] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [exeQuery] INICIA  
+[2024-11-19 17:38:51] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [exeQuery] INICIA  
+[2024-11-19 17:38:51] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [exeQuery] INICIA  
+[2024-11-19 17:38:51] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 17:38:51] [exeQuery] INICIA  
+[2024-11-19 17:38:51] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS nombreregion, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as elemento,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 17:38:51] [cConnMysql] INICIA  
+[2024-11-19 17:38:51] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [getUser] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [exeQuery] INICIA  
+[2024-11-19 18:08:13] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [exeQuery] INICIA  
+[2024-11-19 18:08:13] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [exeQuery] INICIA  
+[2024-11-19 18:08:13] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:08:13] [exeQuery] INICIA  
+[2024-11-19 18:08:13] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS nombreregion, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as elemento,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 18:08:13] [cConnMysql] INICIA  
+[2024-11-19 18:08:13] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [getUser] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [exeQuery] INICIA  
+[2024-11-19 18:09:10] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [exeQuery] INICIA  
+[2024-11-19 18:09:10] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [exeQuery] INICIA  
+[2024-11-19 18:09:10] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:09:10] [exeQuery] INICIA  
+[2024-11-19 18:09:10] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS nombreregion, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as elemento,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 18:09:10] [cConnMysql] INICIA  
+[2024-11-19 18:09:10] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [getInfoModalLogin] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [exeQuery] INICIA  
+[2024-11-19 18:47:48] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [traePoliticas] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [exeQuery] INICIA  
+[2024-11-19 18:47:48] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [exeQuery] INICIA  
+[2024-11-19 18:47:48] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [exeQuery] INICIA  
+[2024-11-19 18:47:48] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:48] [exeQuery] INICIA  
+[2024-11-19 18:47:48] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 18:47:48] [cConnMysql] INICIA  
+[2024-11-19 18:47:48] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [login] INICIA  
+[2024-11-19 18:47:52] [login] Credenciales ingresadas : {":user":"o&m_allware",":pass":"86eb57172b00a4b1e1c92cd8385153c4"} 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT u.ID,u.USER,u.NOMBRE,u.APELLIDO,u.CORREO,u.MOVIL,u.ID_EMPRESA,p.PERFIL_ADC,p.CARGO,p.CREAR_TP,p.DIA_HABIL,p.HORARIO_HABIL,a.ORIGEN FROM intradb.users u INNER JOIN o_m.PERSONAL p ON p.ID = u.personal_id LEFT JOIN intradb.TP_AREA_ORIGEN a ON a.USUARIO = u.USER WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [login] Resultset res->[{"ID":1,"USER":"o&m_allware","NOMBRE":"Soporte","APELLIDO":"Allware","CORREO":"soporte@allware.cl","MOVIL":null,"ID_EMPRESA":2,"PERFIL_ADC":"NO","CARGO":"Externo","CREAR_TP":"NO","DIA_HABIL":null,"HORARIO_HABIL":null,"ORIGEN":"ALLWARE"}] 
+[2024-11-19 18:47:52] [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2,"perfil_adc":"NO","cargo":"Externo","crear_tp":"NO","dia_habil":null,"horario_habil":null,"origen":"ALLWARE"} 
+[2024-11-19 18:47:52] [getInfoModalLogin] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [traePoliticas] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getVacaciones] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getVacaciones] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT VACACIONES,TURNO FROM intradb.users U INNER JOIN o_m.PERSONAL P ON U.personal_id=P.ID  WHERE USER='o&m_allware' ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getTrabajos] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getTrabajos] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(PLANNED_ID)N FROM intradb.ASIGNACION_PLANNED A INNER JOIN intradb.PLANNED P ON A.PLANNED_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getProblemas] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getProblemas] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(P.ID)N FROM intradb.ASIGNACION A INNER JOIN intradb.PROBLEMA P ON A.PROBLEMA_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getTareas] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getTareas] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(T.ID)N FROM intradb.ASIGNACION_TAREA A INNER JOIN intradb.TAREA T ON A.TAREA_ID=T.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getBitacoras] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getBitacoras] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.BITACORA WHERE usr='o&m_allware' AND FIN IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getInventario] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getInventario] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(ID)N FROM o_m.INVENTARIO WHERE RESPONSABLE='o&m_allware' AND STATUS='ENVIADA' ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getMensajes] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getMensajes] user: o&m_allware  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.MESSAGE_QUEUE WHERE DESTINO='o&m_allware' AND RECIBIDO IS NULL ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [getInfoModalInicio] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [traePoliticas] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:52] [exeQuery] INICIA  
+[2024-11-19 18:47:52] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-19 18:47:52] [cConnMysql] INICIA  
+[2024-11-19 18:47:52] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [getUser] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [exeQuery] INICIA  
+[2024-11-19 18:47:57] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [exeQuery] INICIA  
+[2024-11-19 18:47:57] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [exeQuery] INICIA  
+[2024-11-19 18:47:57] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:47:57] [exeQuery] INICIA  
+[2024-11-19 18:47:57] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID ID_COMU,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS NOMBREREGION, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as ELEMENTO,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 18:47:57] [cConnMysql] INICIA  
+[2024-11-19 18:47:57] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [getUser] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [exeQuery] INICIA  
+[2024-11-19 18:48:44] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [exeQuery] INICIA  
+[2024-11-19 18:48:44] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [exeQuery] INICIA  
+[2024-11-19 18:48:44] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-19 18:48:44] [exeQuery] INICIA  
+[2024-11-19 18:48:44] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID ID_COMU,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS NOMBREREGION, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as ELEMENTO,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-19 18:48:44] [cConnMysql] INICIA  
+[2024-11-19 18:48:44] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [login] INICIA  
+[2024-11-25 20:02:09] [login] redireccionando..  
+[2024-11-25 20:02:09] [getInfoModalLogin] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [exeQuery] INICIA  
+[2024-11-25 20:02:09] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [traePoliticas] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [exeQuery] INICIA  
+[2024-11-25 20:02:09] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [exeQuery] INICIA  
+[2024-11-25 20:02:09] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [exeQuery] INICIA  
+[2024-11-25 20:02:09] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:09] [exeQuery] INICIA  
+[2024-11-25 20:02:09] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-25 20:02:09] [cConnMysql] INICIA  
+[2024-11-25 20:02:09] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [login] INICIA  
+[2024-11-25 20:02:12] [login] Credenciales ingresadas : {":user":"o&m_allware",":pass":"86eb57172b00a4b1e1c92cd8385153c4"} 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT u.ID,u.USER,u.NOMBRE,u.APELLIDO,u.CORREO,u.MOVIL,u.ID_EMPRESA,p.PERFIL_ADC,p.CARGO,p.CREAR_TP,p.DIA_HABIL,p.HORARIO_HABIL,a.ORIGEN FROM intradb.users u INNER JOIN o_m.PERSONAL p ON p.ID = u.personal_id LEFT JOIN intradb.TP_AREA_ORIGEN a ON a.USUARIO = u.USER WHERE USER='o&m_allware' AND CLAVE='86eb57172b00a4b1e1c92cd8385153c4' AND ELIMINADO IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [login] Resultset res->[{"ID":1,"USER":"o&m_allware","NOMBRE":"Soporte","APELLIDO":"Allware","CORREO":"soporte@allware.cl","MOVIL":null,"ID_EMPRESA":2,"PERFIL_ADC":"NO","CARGO":"Externo","CREAR_TP":"NO","DIA_HABIL":null,"HORARIO_HABIL":null,"ORIGEN":"ALLWARE"}] 
+[2024-11-25 20:02:12] [login] SESSION->{"id":1,"user":"o&m_allware","name":"Soporte","lastname":"Allware","correo":"soporte@allware.cl","movil":null,"enterprise_id":2,"perfil_adc":"NO","cargo":"Externo","crear_tp":"NO","dia_habil":null,"horario_habil":null,"origen":"ALLWARE"} 
+[2024-11-25 20:02:12] [getInfoModalLogin] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [traePoliticas] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getVacaciones] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getVacaciones] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT VACACIONES,TURNO FROM intradb.users U INNER JOIN o_m.PERSONAL P ON U.personal_id=P.ID  WHERE USER='o&m_allware' ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getTrabajos] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getTrabajos] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(PLANNED_ID)N FROM intradb.ASIGNACION_PLANNED A INNER JOIN intradb.PLANNED P ON A.PLANNED_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getProblemas] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getProblemas] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(P.ID)N FROM intradb.ASIGNACION A INNER JOIN intradb.PROBLEMA P ON A.PROBLEMA_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getTareas] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getTareas] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(T.ID)N FROM intradb.ASIGNACION_TAREA A INNER JOIN intradb.TAREA T ON A.TAREA_ID=T.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getBitacoras] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getBitacoras] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.BITACORA WHERE usr='o&m_allware' AND FIN IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getInventario] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getInventario] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(ID)N FROM o_m.INVENTARIO WHERE RESPONSABLE='o&m_allware' AND STATUS='ENVIADA' ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getMensajes] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getMensajes] user: o&m_allware  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.MESSAGE_QUEUE WHERE DESTINO='o&m_allware' AND RECIBIDO IS NULL ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [getInfoModalInicio] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [traePoliticas] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:12] [exeQuery] INICIA  
+[2024-11-25 20:02:12] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-25 20:02:12] [cConnMysql] INICIA  
+[2024-11-25 20:02:12] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [getTPaux] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [exeQuery] INICIA  
+[2024-11-25 20:02:15] [exeQuery] Query->[SELECT COUNT(1)N FROM intradb.TMP_TP_DATA WHERE planned_aux=574482 ] 
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [getUser] INICIA  
+[2024-11-25 20:02:15] [getTPtipo] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [exeQuery] INICIA  
+[2024-11-25 20:02:15] [exeQuery] Query->[SELECT ID,ORIGEN,TIPO FROM intradb.TP_TIPO ORDER BY ORIGEN ] 
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [getServicios] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [exeQuery] INICIA  
+[2024-11-25 20:02:15] [exeQuery] Query->[SELECT DISTINCT ELEMENTOS FROM intradb.TP_CLASIFICACION WHERE ORIGEN='ALLWARE' AND FLAG = 0 AND HABILITADO = 'SI' ORDER BY ELEMENTOS ASC ] 
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [getRegiones] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:15] [exeQuery] INICIA  
+[2024-11-25 20:02:15] [exeQuery] Query->[SELECT reg.REGION, reg.REGION_NOMBRE, reg.ID_REGION FROM o_m.TP_REGION reg ORDER BY reg.ID_REGION ASC ] 
+[2024-11-25 20:02:15] [cConnMysql] INICIA  
+[2024-11-25 20:02:15] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getVacaciones] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getVacaciones] user: o&m_allware  
+[2024-11-25 20:02:17] [exeQuery] INICIA  
+[2024-11-25 20:02:17] [exeQuery] Query->[SELECT VACACIONES,TURNO FROM intradb.users U INNER JOIN o_m.PERSONAL P ON U.personal_id=P.ID  WHERE USER='o&m_allware' ] 
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getTrabajos] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getTrabajos] user: o&m_allware  
+[2024-11-25 20:02:17] [exeQuery] INICIA  
+[2024-11-25 20:02:17] [exeQuery] Query->[SELECT COUNT(PLANNED_ID)N FROM intradb.ASIGNACION_PLANNED A INNER JOIN intradb.PLANNED P ON A.PLANNED_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getProblemas] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getProblemas] user: o&m_allware  
+[2024-11-25 20:02:17] [exeQuery] INICIA  
+[2024-11-25 20:02:17] [exeQuery] Query->[SELECT COUNT(P.ID)N FROM intradb.ASIGNACION A INNER JOIN intradb.PROBLEMA P ON A.PROBLEMA_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getTareas] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:17] [getTareas] user: o&m_allware  
+[2024-11-25 20:02:17] [exeQuery] INICIA  
+[2024-11-25 20:02:17] [exeQuery] Query->[SELECT COUNT(T.ID)N FROM intradb.ASIGNACION_TAREA A INNER JOIN intradb.TAREA T ON A.TAREA_ID=T.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:17] [cConnMysql] INICIA  
+[2024-11-25 20:02:17] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getBitacoras] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getBitacoras] user: o&m_allware  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.BITACORA WHERE usr='o&m_allware' AND FIN IS NULL ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getInventario] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getInventario] user: o&m_allware  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT COUNT(ID)N FROM o_m.INVENTARIO WHERE RESPONSABLE='o&m_allware' AND STATUS='ENVIADA' ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getMensajes] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getMensajes] user: o&m_allware  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.MESSAGE_QUEUE WHERE DESTINO='o&m_allware' AND RECIBIDO IS NULL ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [getInfoModalInicio] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [traePoliticas] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:18] [exeQuery] INICIA  
+[2024-11-25 20:02:18] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-25 20:02:18] [cConnMysql] INICIA  
+[2024-11-25 20:02:18] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [getUser] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] INICIA  
+[2024-11-25 20:02:45] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID =  ] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] ERROR [ Msg->[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] INICIA  
+[2024-11-25 20:02:45] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID= ;] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] ERROR [ Msg->[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] INICIA  
+[2024-11-25 20:02:45] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED= ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] ERROR [ Msg->[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY FECHA DESC LIMIT 1' at line 1] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] INICIA  
+[2024-11-25 20:02:45] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID ID_COMU,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS NOMBREREGION, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as ELEMENTO,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID= LIMIT 1 ] 
+[2024-11-25 20:02:45] [cConnMysql] INICIA  
+[2024-11-25 20:02:45] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:45] [exeQuery] ERROR [ Msg->[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 10] 
+[2024-11-25 20:02:46] [getVacaciones] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getVacaciones] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT VACACIONES,TURNO FROM intradb.users U INNER JOIN o_m.PERSONAL P ON U.personal_id=P.ID  WHERE USER='o&m_allware' ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getTrabajos] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getTrabajos] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(PLANNED_ID)N FROM intradb.ASIGNACION_PLANNED A INNER JOIN intradb.PLANNED P ON A.PLANNED_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getProblemas] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getProblemas] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(P.ID)N FROM intradb.ASIGNACION A INNER JOIN intradb.PROBLEMA P ON A.PROBLEMA_ID=P.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getTareas] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getTareas] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(T.ID)N FROM intradb.ASIGNACION_TAREA A INNER JOIN intradb.TAREA T ON A.TAREA_ID=T.ID WHERE A.usr='o&m_allware' AND CIERRE IS NULL ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getBitacoras] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getBitacoras] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.BITACORA WHERE usr='o&m_allware' AND FIN IS NULL ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getInventario] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getInventario] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(ID)N FROM o_m.INVENTARIO WHERE RESPONSABLE='o&m_allware' AND STATUS='ENVIADA' ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getMensajes] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getMensajes] user: o&m_allware  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT COUNT(ID)N FROM intradb.MESSAGE_QUEUE WHERE DESTINO='o&m_allware' AND RECIBIDO IS NULL ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [getInfoModalInicio] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT TITULO,TEXTO FROM intradb.PARAM_INFO_MODAL WHERE ACTIVO=1 ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [traePoliticas] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='POLITICAS_CLAVE' AND Activo=1 ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MINIMO' AND Activo=1 ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='LARGO_MAXIMO' AND Activo=1 ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:46] [exeQuery] INICIA  
+[2024-11-25 20:02:46] [exeQuery] Query->[SELECT llave,descripcion,mensaje_error,valor FROM intradb.params_password WHERE llave='INCLUSION_CARACTERES_ESPECIALES' AND Activo=1 ] 
+[2024-11-25 20:02:46] [cConnMysql] INICIA  
+[2024-11-25 20:02:46] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [getUser] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [exeQuery] INICIA  
+[2024-11-25 20:02:58] [exeQuery] Query->[SELECT ID, TP_SOLIC, TP_FECHA, TP_AREA, TP_SUBELEMENTOS, TP_ELEMENTOS, TP_TIPO, TP_CLASIF, TP_ZONA, TP_REF, TP_INTERNA, TP_FECHA_SOLICITADA, PLANNED_ID, TP_FECHA_GESTION, ID_TP_CLASIFICACION, ID_COMUNA, NOMBRE_ELEMENTO, SALA, ID_REGION, TIPO_INGRESO, LUGAR, ID_ELEMENTO, MODALIDAD_TRABAJO FROM intradb.TP_DATA WHERE PLANNED_ID = 5 ] 
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [exeQuery] INICIA  
+[2024-11-25 20:02:58] [exeQuery] Query->[SELECT P.TITULO,P.DESCRIPCION,A.NOMBRE,B.NOMBRE NOMBRE_EDO,CONCAT_WS(' ',P.FECHA_INICIO,P.HORA_INICIO) as TP_PLANNED,P.TP_FECHA_EXEC,P.FECHA_FIN,P.OWNER,P.TP_VER,P.RPN ,P.ESTADOS_ID,CONCAT(P.FECHA_TERMINO, ' ' , P.HORA_TERMINO) FECHA_PLANIF_FIN  
+			FROM intradb.PLANNED P 
+				LEFT JOIN intradb.IMPACTO A ON P.IMPACTO_ID=A.ID 
+				LEFT JOIN intradb.ESTADOS_PLANNED B ON P.ESTADOS_ID=B.ID 
+				LEFT JOIN intradb.TP_DATA D ON D.PLANNED_ID=P.ID 
+				LEFT JOIN intradb.TP_CLASIFICACION C ON C.ID=D.ID_TP_CLASIFICACION 
+			WHERE P.ID=5 ;] 
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [exeQuery] INICIA  
+[2024-11-25 20:02:58] [exeQuery] Query->[SELECT C.TERRENO FROM intradb.TP_TERRENO C WHERE C.ID_PLANNED=5 ORDER BY FECHA DESC LIMIT 1 ] 
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  
+[2024-11-25 20:02:58] [exeQuery] INICIA  
+[2024-11-25 20:02:58] [exeQuery] Query->[SELECT B.TP_SOLIC,B.TP_FECHA,B.TP_AREA,B.TP_TIPO,B.TP_CLASIF,B.ID_REGION,B.TP_REF,B.TP_FECHA_SOLICITADA,A.PUNTAJE,
+				CASE WHEN B.TP_ELEMENTOS='Energia y Clima' AND (B.ID_REGION IS NULL AND B.ID_COMUNA IS NULL) 
+					THEN 'Energia y Clima.' ELSE B.TP_ELEMENTOS END AS TP_ELEMENTOS,B.TP_SUBELEMENTOS,A.ID,c.COMUNA,B.NOMBRE_ELEMENTO,B.SALA,B.TP_ZONA,c.ID ID_COMU,(SELECT REGION_NOMBRE FROM o_m.TP_REGION tpreg WHERE tpreg.REGION=B.ID_REGION LIMIT 1) AS NOMBREREGION, CONCAT(re.REGION,'-',re.REGION_NOMBRE) AS REGION,
+				B.LUGAR as ELEMENTO,ti.TIPO_INGRESO, B.ID as ID_TP_DATA 
+			FROM intradb.TP_CLASIFICACION A 
+				LEFT JOIN intradb.TP_DATA B ON A.ID = B.ID_TP_CLASIFICACION 
+				LEFT JOIN o_m.COMUNAS c ON B.ID_COMUNA=c.ID 
+				LEFT JOIN o_m.TP_REGION re ON (re.ID_REGION = B.ID_REGION) 
+				LEFT JOIN TIPO_INGRESO_TP ti ON (ti.ID=B.TIPO_INGRESO) 
+			WHERE B.PLANNED_ID=5 LIMIT 1 ] 
+[2024-11-25 20:02:58] [cConnMysql] INICIA  
+[2024-11-25 20:02:58] [cConnMysql] Conexion OK  

@@ -61,3 +61,25 @@
 .mainPanel p {
     font-size: x-small;
 }
+
+.contenedorSeleccionmultiple{
+	height: auto;
+	padding: 4px;
+	width: auto;
+	overflow:auto;
+	max-height:300px;
+	border:1px solid;
+}
+
+.tabla, .tabla th, .tabla td {
+	border: 1px solid gray !important;
+}
+
+.tablathead {
+	font-size: x-small;
+	background-color: #D3DCE3;
+}
+
+.tablatbody {
+	font-size: x-small;
+}
