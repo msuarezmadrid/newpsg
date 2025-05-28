@@ -146,7 +146,7 @@
 			<br/>
 		</div>
 		
-		<!-- MODAL POLITICAS -->
+		<!-- MODAL -->
 		<div id='modalTramo' class='modal fade' role='dialog'>
 			<div class='modal-dialog ' id='modalDialogTramo' role='document'>
 				<div class='modal-content' id='modalContentTramo' ></div>

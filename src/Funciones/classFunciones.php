@@ -13,6 +13,9 @@
 		private $bodyCss = "body.css";
 		private $boostrapCss = "bootstrap3.4.1.min.css";
 		private $functions = "functions.js";
+		private $flatpickr = "flatpickr";
+		private $flatpickres = "es.js";
+		private $flatpickrcss = "flatpickr.min.css";
 		private $jqueryMin = "jquery.3.7.1.min.js";
 		private $boostrapJs = "bootstrap3.4.1.min.js";
 		
@@ -26,7 +29,10 @@
 			$this->siteHeader = BASE_PATH . "/site/lib/" . $this->siteHeader;
 			$this->bodyCss = BASE_URL . "/site/lib/css/" . $this->bodyCss;
 			$this->boostrapCss = BASE_URL . "/site/lib/css/" . $this->boostrapCss;
+			$this->flatpickrcss = BASE_URL . "/site/lib/css/" . $this->flatpickrcss;
 			$this->functions = BASE_URL . "/site/lib/js/" . $this->functions;
+			$this->flatpickr = BASE_URL . "/site/lib/js/" . $this->flatpickr;
+			$this->flatpickres = BASE_URL . "/site/lib/js/" . $this->flatpickres;
 			$this->jqueryMin = BASE_URL . "/site/lib/js/" . $this->jqueryMin;
 			$this->boostrapJs = BASE_URL . "/site/lib/js/" . $this->boostrapJs;
 			
@@ -55,9 +61,21 @@
 		function boostrapCss(){
 			return $this->boostrapCss;
 		}
+
+		function flatpickrcss(){
+			return $this->flatpickrcss;
+		}
 		
 		function functions(){
 			return $this->functions;
+		}
+
+		function flatpickr(){
+			return $this->flatpickr;
+		}
+
+		function flatpickres(){
+			return $this->flatpickres;
 		}
 		
 		function jqueryMin(){
@@ -802,6 +820,16 @@
 				}
 			}// fin if 
 			return $mes;
+		}
+
+		function validarFecha($fecha){
+			$d = \DateTime::createFromFormat('Y-m-d', $fecha); 
+			return $d && $d->format('Y-m-d') === $fecha;
+		}
+
+		function validarHora($hora){
+			$d = \DateTime::createFromFormat('H:i', $hora); 
+			return $d && $d->format('H:i') === $hora;
 		}
 
     } // fin class 

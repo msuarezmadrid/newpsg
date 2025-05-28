@@ -10,7 +10,10 @@
 	
 	$bodyCss=$cCfn->bodyCss();
 	$boostrapCss=$cCfn->boostrapCss();
+	$flatpickrcss=$cCfn->flatpickrcss();
 	$functions=$cCfn->functions();
+	$flatpickr=$cCfn->flatpickr();
+	$flatpickres=$cCfn->flatpickres();
 	$jqueryMin=$cCfn->jqueryMin();
 	$boostrapJs=$cCfn->boostrapJs();
 	
@@ -48,6 +51,7 @@
 			<div class='row'>
 				<div class='col-sm-12 col-md-12 col-lg-12' ><h3 style='text-align:center;'><strong>Trabajo Programado <?php echo $planned; ?></strong></h3></div>
 				<input type='hidden' id='planned_id' name='planned_id' value='<?php echo $planned; ?>'>
+				<input type='hidden' id='path' value='<?php echo $basePath; ?>'>
 			</div>
 			<div class='row'><br/></div>
 			<!-- TITULO -->
@@ -111,7 +115,7 @@
 					}
 			?>
 					<div class='row'>
-						<div class='col-sm-10 col-md-10 col-lg-10' >
+						<div class='col-sm-12 col-md-12 col-lg-12' >
 							<table class='table tabla table-condensed ' >
 								<thead class='tablathead' >
 									<tr>
@@ -184,16 +188,17 @@
 											echo "<td>".$row[0]['TP_REF']."</td>";
 										}
 										
+										$fec_title=null;
 										if( $userADC === "SI" ){
 											if( empty($row[0]['TP_FECHA_SOLICITADA']) ){
 												$fec_title="(Ingresar ";
 											}else $fec_title="(Modificar ";
-											$link="<button type='button' class='btn btn-xs btn-link' id='btnFechaSolic' onClick='' >".$fec_title." fecha)</button>";
+											$link="<button type='button' class='btn btn-xs btn-link' id='btnFechaSolic' onClick='fechaSolicEjecTP(\"".$userADC."\",".$planned.");' >".$fec_title." fecha)</button>";
 										}
 										else{
 											$edos=array(2,9,10,6);
 											if( !empty($boolOwner) && in_array($tp_state_id,$edos) ){
-												$link="<button type='button' class='btn btn-xs btn-link' id='btnFechaSolic' onClick='' >".$fec_title." fecha)</button>";
+												$link="<button type='button' class='btn btn-xs btn-link' id='btnFechaSolic' onClick='fechaSolicEjecTP(\"".$userADC."\",".$planned.");' >".$fec_title."</button>";
 											}
 											else{
 												$link="";
@@ -240,10 +245,67 @@
 			<?php 
 				
 				} # FIN if( $tp_ver !== 0 )
+				
+				if( $comuna === "SI" ){ ?>
+				<div class='row'>
+					<div class='col-sm-12 col-md-12 col-lg-12' >
+						<table class='table tabla table-condensed ' >
+							<thead class='tablathead' >
+								<tr>
+									<th>Regi&oacute;n</th>
+									<th>Comuna</th>
+									<th>Lugar</th>
+									<th>Nombre Lugar</th>
+									<th>Ubicaci&oacute;n</th>
+									<th>Acci&oacute;n</th>
+								</tr>
+							</thead>
+							<tbody class='tablatbody'>
+								<tr>
+									<td><?php echo $descripcion_region; ?></td>
+									<td><?php echo $comunatp; ?></td>
+									<td><?php echo $lugar; ?></td>
+									<td><?php echo $nombre_elemento; ?></td>
+									<td><?php echo ( !empty($sala) ? $sala : "Sala/Exterior" ); ?></td>
+									<td><?php echo ( $userADC === "SI" ? "<button type='button' class='btn btn-xs btn-link' onClick='EditarTrama(".$idTpData.",".$planned.",1);' >Editar</button> | <button type='button' class='btn btn-xs btn-link' onClick='EliminarTrama(".$idTpData.",".$planned.");' >Eliminar</button>" : "" ); ?></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			<?php
+				}
+
+				if ( $userADC === "SI" ){
+					$params = [
+						":tp" => $planned
+					];
+					$sql=$cCfn->getQuery("qry_comuna_tpdata", $params);
+					$row = $cCfn->exeQuery($sql,$cCfn->getConnBD());
+					$row[0]['ID_COMUNA']=""; // prueba
+					if( empty($row[0]['ID_COMUNA']) ){ ?>
+						<button type='button' class='btn btn-xs btn-link' onClick='mostrarVistaADC();' >Modificar par&aacute;metros de trabajo</button>
+						
+						<div id='vistaADC' style='display:none;'>
+							<table >
+								<tr >
+									<th>Area de origen</th>
+								</tr>
+							</table>
+						</div>
+				<?php 
+					} // fin if( empty($row[0]['ID_COMUNA']) ){ 
+				}
 			?>
 			
 			
 		</div>
-		
+		<!-- MODAL -->
+		<div id='modaltp' class='modal fade' role='dialog'>
+			<div class='modal-dialog ' id='modalDialogTP' role='document'>
+				<div class='modal-content' id='modalContentTP' ></div>
+			</div>
+		</div>
+        <!-- FIN MODAL -->
 	</body>
 </html>

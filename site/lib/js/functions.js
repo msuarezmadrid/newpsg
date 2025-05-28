@@ -20,7 +20,46 @@ $(document).ready(function() {
 	});
 	triggerAO();
 	
+	$("#modaltp").on("shown.bs.modal", function () {
+		initializeFlatpickr("#date", { 
+			dateFormat: "Y-m-d", 
+			minDate: "today", // DESHABILITA DIAS PASADOS 
+			locale: "es",
+			onChange: function(selectedDates, dateStr, instance) { 
+				if (dateStr === new Date().toISOString().split('T')[0]) { 
+					// Si la fecha seleccionada es hoy 
+					instance.set('minTime', new Date().getHours() + ":" + new Date().getMinutes()); 
+				} else {
+					instance.set('minTime', null); // Quitar restricción de tiempo para fechas futuras 
+				}
+			}
+		});
+		initializeFlatpickr("#time", {
+			enableTime: true,
+			noCalendar: true,
+			dateFormat: "H:i",
+			time_24hr: true,
+			locale: "es",
+			minTime: new Date().getHours() + ":" + new Date().getMinutes(), // Deshabilita las horas pasadas hoy 
+			onOpen: function(selectedDates, dateStr, instance) { 
+				var dateField = document.querySelector("#date").value; 
+				if (dateField === new Date().toISOString().split('T')[0]) { // Si la fecha seleccionada es hoy 
+					instance.set('minTime', new Date().getHours() + ":" + new Date().getMinutes());
+				} else {
+					instance.set('minTime', null); // Quitar restricción de tiempo para fechas futuras 
+				}
+			}
+		});
+	});
+
 });
+
+// Para inicializar Flatpickr solo cuando corresponda 
+function initializeFlatpickr(selector, options) {
+	if (!$(selector).hasClass("flatpickr-input")) {
+		flatpickr(selector, options);
+	}
+}
 
 function limpiar(){
 	location.reload();
@@ -582,6 +621,66 @@ function ingresaTP(){
 		success: function(rspta){
 			// alert(rspta);
 			window.location.href = path + '/tp/ver_tp.php?tp=' + rspta.TP
+		},
+		error: function(){
+		}
+	});	
+}
+
+function fechaSolicEjecTP(adc,tp){
+	if( adc == "SI" ){
+		let opcion=14;
+		let path = $("#path").val();
+		let vars="opcion="+opcion+"&planned="+tp;
+		$.ajax({
+			type: "POST",
+			url: path + "/lib/functions.php",
+			data: vars,
+			dataType: "html",
+			beforeSend: function(){},
+			success: function(rspta){
+				$("#modalContentTP").html(rspta);
+				$('#modaltp').modal({
+					show: 'true'
+				});
+			},
+			error: function(){
+			}
+		});	
+	}
+	else{
+		alert("Usted no puede modificar esta fecha");
+		return false;
+	}
+}
+
+function saveFechaSolicEjecTP(){
+	let opcion=15;
+	let path = $("#path").val();
+	let tp = $("#planned").val();
+	let date = $("#date").val();
+	let time = $("#time").val();
+	let vars="opcion="+opcion+"&planned="+tp+"&date="+date+"&time="+time;
+	$.ajax({
+		type: "POST",
+		url: path + "/lib/functions.php",
+		data: vars,
+		dataType: "html",
+		beforeSend: function(){
+			if( date == "" || time == "" ){
+				alert("Debe ingresar datos válidos.");
+				return false;
+			}
+		},
+		success: function(rspta){
+			if( rspta === "1" ){
+				alert("Modificación éxitosa");
+				$('#modaltp').modal('hide');
+				location.reload();
+			}
+			else{
+				alert("Existió un error al actualizar.");
+			}
 		},
 		error: function(){
 		}

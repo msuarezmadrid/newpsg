@@ -30,6 +30,12 @@
 	$user = $cCfn->getUser();
 	
 	$id_registro = ( isset($_REQUEST['id_reg']) ) ? $_REQUEST['id_reg'] : "" ;
+
+	$planned = ( isset($_REQUEST['planned']) ) ? $_REQUEST['planned'] : "" ;
+	$date = ( isset($_REQUEST['date']) ) ? $_REQUEST['date'] : "" ;
+	$time = ( isset($_REQUEST['time']) ) ? $_REQUEST['time'] : "" ;
+
+
 	
 	$cCfn->my_log("[". $file ."] INICIA [Opcion $ops]" );
 	
@@ -533,6 +539,105 @@
 				}
 				echo $table;
 			}
+			break;
+		}
+
+		case 14:{ # 
+			$modal=null;
+			
+			$params = [
+				":tp" => $planned
+			];
+			# 
+			$sql=$cCfn->getQuery("qry_detalleTp", $params);
+			$row = $cCfn->exeQuery($sql,$cCfn->getConnBD());
+			
+			if( empty($row[0]['TP_FECHA_SOLICITADA']) ){
+				$title = "Ingresar";
+				$prebody = "<h5>Seleccione los datos a continuaci&oacute;n</h5>";
+			}
+			else{
+				$title = "Modificar";
+				$prebody = "<h4>Fecha actual</h4>
+					<h5 style='text-align:center;'>".$row[0]['TP_FECHA_SOLICITADA']."</h5>";
+			}
+			
+			# MODAL HEADER 
+			$modal.="<div class='modal-header'>
+				<h4 class='modal-title'>".$title." fecha solicitada para ejecuci&oacute;n</h4>
+				<h4 class='modal-title'>Para TP ".$planned." </h4>
+				<input type='hidden' id='planned' name='planned' value='".$planned."'>
+			</div>";
+
+			# MODAL BODY 
+			$modal.="<div class='modal-body'>
+				<div class='row'>
+					<div class='col-sm-6 col-md-6 col-lg-6' >
+						<div class='form-group'>
+							".$prebody."
+						</div>
+					</div>
+				</div>
+				<div class='row'>
+					<div class='col-sm-4 col-md-4 col-lg-4' style='text-align:left;'  >
+						<div class='form-group'>
+							<label for='date'>Fecha</label>
+							<input type='text' class='form-control' id='date'>
+						</div>
+						<div class='form-group'>
+							<label for='time'>Hora</label>
+							<input type='text' class='form-control' id='time'>
+						</div>
+					</div>
+				</div>
+			</div>";
+
+			# MODAL FOOTER 
+			$modal.="<div class='modal-footer'>
+				<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'>Cancelar</button>
+				<button type='button' class='btn btn-default btn-sm' onClick='saveFechaSolicEjecTP()' >Guardar</button>
+			</div>";
+
+			echo $modal;
+			break;
+		}
+
+		case 15:{
+			// 
+			$params = [
+				":tp" => $planned
+			];
+			# TRAEMOS EL REGISTRO DE TP_DATA 
+			$sql=$cCfn->getQuery("qry_tpdata", $params);
+			$row = $cCfn->exeQuery($sql,$cCfn->getConnBD());
+
+			$flagF=null; $flagH=null;
+			# Validamos fecha y hora 
+			if( $cCfn->validarFecha($date) ){
+				$flagF=true;
+			}
+			if( $cCfn->validarHora($time) ){ 
+				$flagH=true;
+			}
+
+			$dateFinal=null;
+			if( $flagF && $flagH ){
+				$datetime = new \DateTime("$date $time");
+				$dateFinal = $datetime->format('Y-m-d H:i');
+			}
+
+			$updateAffected=null;
+			if( !empty($dateFinal) ){
+				$params = [
+					":tp" => $planned,
+					":fechaFinal" => $dateFinal,
+					":reg" => $row[0]["ID"]
+				];
+				$sql=$cCfn->getQuery("update_tpdata", $params);
+				$updateAffected = $cCfn->exeQuery($sql,$cCfn->getConnBD());
+			}
+			echo $updateAffected['affected'];
+
 			break;
 		}
 		
