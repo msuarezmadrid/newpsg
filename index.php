@@ -1,12 +1,10 @@
 <?php
     session_start();
     if( isset($_SESSION['user']) ){
-        header("Location: /site/home");
+        header("Location: ./site/home.php");
         exit;
     }
     require "autoloader.php";
-    use App\Componentes\DependencyContainer;
-    $container = new DependencyContainer();
-	$cCfg = $container->getFunciones();
-    
-	header("Location: login.php");
+    use App\Config\classConfig;
+    $cCfg = new classConfig();
+    $cCfg->login(false);

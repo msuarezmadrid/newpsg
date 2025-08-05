@@ -5,7 +5,6 @@
     <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" sizes="32x32" ></link>
 
     <!-- Latest compiled and minified CSS -->
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="<?php echo $boostrapCss; ?>">
     <link rel="stylesheet" href="<?php echo $bodyCss; ?>">
     <link rel="stylesheet" href="<?php echo $flatpickrcss; ?>">
@@ -20,24 +19,6 @@
     <script type="text/javascript" src="<?php echo $functions; ?>" ></script>
     <script type="text/javascript" src="<?php echo $flatpickr; ?>" ></script>
     <script type="text/javascript" src="<?php echo $flatpickres; ?>" ></script>
-=======
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
-    <link rel="stylesheet" href="<?php echo $boostrapCss; ?>">
-    <!--link rel="stylesheet" href="./lib/css/body.css"-->
-    <link rel="stylesheet" href="<?php echo $bodyCss; ?>">
-
-    <!-- jQuery library -->
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script-->
-    <script src="<?php echo $jqueryMin; ?>"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
-    <script src="<?php echo $boostrapJs; ?>"></script>
-
-    <!-- Local JavaScript -->
-    <!--script type="text/javascript" src="./lib/js/functions.js" ></script-->
-    <script type="text/javascript" src="<?php echo $functions; ?>" ></script>
->>>>>>> Stashed changes
 
     <style>
         body {

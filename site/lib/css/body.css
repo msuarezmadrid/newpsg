@@ -1,78 +1,19 @@
 /* Estilos para la sidebar */
-.container-fluids {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.navbar {
-	flex: 0 0 50px;
-	background-color: #e6e6e6;
-    padding: 0 10px;
-    align-items: stretch;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 1000;
-	height: 50px;
-}
-
-.content-wrapper {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-	box-sizing: border-box;
-	/* margin-top: 40px; */
-	position: relative;
-}
-
-.main-content {
-	flex: 1;
-	overflow-y: auto;
-	margin: 50px 0 0 ;
-	padding: 0;
-	padding-left: 5px;
-	margin-left: 250px;
-    transition: margin-left 0.3s ease;
-}
-
-.navbar-brand {
-    margin-right: auto; /* Empuja los elementos a la derecha */
-    padding-left: 10px;
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-	overflow-x: auto;
-    white-space: nowrap;
-}
-
-.navbar-nav.navbar-right {
-    margin-left: auto; /* Empuja el botón de salir a la derecha */
-}
-
-.navbar-btn {
-	position: absolute;
-    top: 0;
-}
-
 .sidebar {
-    width: 250px;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px; /* Ajusta este valor según la altura de tu navbar */
+    left: 0;
     background-color: #f8f9fa;
     padding-top: 1px;
-	overflow-y: auto;
-	transition: width 0.3s ease;
-	top: 50px;
-	left: 0;
-	height: calc(100% - 50px);
-	position: fixed;
-	box-sizing: border-box;
+    transition: 0.3s;
 }
 
 .sidebar a {
-    padding: 8px 10px;
+    padding: 10px 15px;
     text-decoration: none;
+    font-size: 18px;
     color: #333;
     display: block;
     font-size: x-small;
@@ -82,22 +23,27 @@
     background-color: #ddd;
 }
 
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+.main-content {
+    margin-left: 220px;
+    margin-top: -20px;
+    padding: -20px;
+    transition: margin-left 0.3s;
+}
+
 .sidebar-hidden {
     width: 0;
-}
-
-/* Ajustar el margen izquierdo del contenido principal cuando el sidebar está oculto */
-.content-wrapper.sidebar-hidden + .main-content {
-    margin-left: 5px !important;
-}
-
-/* Ajustar el margen izquierdo del contenido principal cuando el sidebar está abierto */
-.content-wrapper.sidebar + .main-content {
-    margin-left: 250px !important;
+    overflow: hidden;
 }
 
 .main-content-expanded {
-    margin-left: 10px !important;
+    margin-left: 10px;
 }
 
 .navbar-header {
@@ -107,16 +53,10 @@
 
 .navbar-header h6 {
     margin: 0;
-    padding-left: 60px;
+    padding-left: 30px;
+    line-height: 1.5;
 }
 
-#navbar-title {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-    align-items: center;
-}
 
 .mainPanel p {
     font-size: x-small;
@@ -143,26 +83,4 @@
 
 .tablatbody {
 	font-size: x-small;
-<<<<<<< Updated upstream
 }
-=======
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-    .sidebar + .main-content {
-        margin-left: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar {
-        width: 150px;
-    }
-    .sidebar + .main-content {
-        margin-left: 150px;
-    }
-}
->>>>>>> Stashed changes

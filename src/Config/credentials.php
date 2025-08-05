@@ -1,12 +1,5 @@
 <?php 
     $credentials = [
-<<<<<<< Updated upstream:src/Config/credentials.php
-=======
-        "logs" => [
-            "tmp_log"=>"/var/log/psg/web_log",
-            "login_log"=>"/var/log/psg/login_log"
-        ],
->>>>>>> Stashed changes:src/config/credentials.php
         "local" => [
             "user" => "cm9vdA==",
             //"pass" => "TXN1NHIzei4sMTk4NQ==",
@@ -17,15 +10,12 @@
         "intradb" => [
             "user" => "YWxsd2FyZQ==",
             "pass" => "eEAzRHJaNWc1aWpOR3pf",
-            // "host" => "MTcyLjE4LjE1NS4xNjY=" # ...166
-			"host" => "bG9jYWxob3N0", # localhost 
-			"db"   => "intradb"
+            "host" => "MTcyLjE4LjE1NS4xNjY="
         ],
         "o_m" => [
             "user" => "YWxsd2FyZQ==",
             "pass" => "eEAzRHJaNWc1aWpOR3pf",
-            "host" => "MTcyLjE4LjE1NS4xNjY=",
-			"db"   => "o_m"
+            "host" => "MTcyLjE4LjE1NS4xNjY="
         ],
         "dbhudson" => [
             "user" => "cm9vdA==",
