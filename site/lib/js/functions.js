@@ -1,13 +1,22 @@
 var currentUrl = '';
 $(document).ready(function() {
+<<<<<<< Updated upstream
     // Limpiar el sessionStorage al cargar la página por primera vez (ejemplo de inicio de sesión)
     if (sessionStorage.getItem('modalShown') === null) {
+=======
+	// Limpiar el sessionStorage al cargar la página por primera vez (ejemplo de inicio de sesión)
+    if (sessionStorage.getItem('modalShown') !== 'true' ) {
+>>>>>>> Stashed changes
         $('#modalAviso').modal({
             show: 'true'
         });
         sessionStorage.setItem('modalShown', 'true'); // Guardar que el modal ya se ha mostrado
     }
+<<<<<<< Updated upstream
 
+=======
+	
+>>>>>>> Stashed changes
     // Para los enlaces en la barra lateral
     $('#mySidebar a').on('click', handleSidebarClick);
 
@@ -51,6 +60,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+<<<<<<< Updated upstream
 
 });
 
@@ -70,12 +80,71 @@ function triggerAO(){
 		$('#s_areaorigen').trigger('change');
 	}
 }
+=======
+	
+	$("#ingresarLogin").on("click", function(e){
+		e.preventDefault();
+		let txtUsuario=$("#txtUsuario").val();
+		let usuario=btoa(txtUsuario);
+		let txtPwd=$("#txtPwd").val();
+		let ingresarLogin=$(this).val();
+		let vars={
+			txtUsuario: txtUsuario,
+			txtPwd: txtPwd,
+			ingresarLogin: ingresarLogin
+		};
+		// console.log(vars);
+		$.ajax({
+			type: "POST",
+			url: "login.php",
+			data: vars,
+			dataType: "text",
+			beforeSend: function(){},
+			success: function(rspta){
+				if (rspta.startsWith("redirect:")) {
+					let redirectUrl = rspta.split(":")[1];
+					window.location.href = redirectUrl;
+				} else if (rspta === "UserNot") {
+					alert("ERROR! Usuario inexistente!");
+				} else if (rspta === "CharWrong") {
+					alert("ERROR! Se han ingresado carácteres no permitidos, se deben cumplir las políticas de seguridad.");
+				} else if (rspta === "BloqIntFall") {
+					alert("ERROR! La cuenta se encuentra bloqueada por intentos fallidos.");
+				} else if (rspta === "BloqInact") {
+					alert("ERROR! La cuenta se encuentra bloqueada por inactividad.");
+				} else if (rspta === "MaxIntent") {
+					alert("ERROR! Ha alcanzado el máximo de intentos permitidos.");
+				} else if (rspta === "CredenErr") {
+					alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+				} else if (rspta === "PassCad") {
+					alert("ERROR! Su clave temporal ha caducado.");
+				} else if (rspta === "PassCadCamb") {
+					alert("ERROR! Su clave temporal ha caducado, debe cambiarla.");
+					window.location.href = "change_form.php?usr="+usuario;
+				}
+				else {
+					alert("Ocurrió un error inesperado. Por favor, inténtalo de nuevo.");
+				}
+			},
+			error: function(){
+				alert("Error en la solicitud. Por favor, inténtalo de nuevo.");
+			}
+		});
+	});
+});
+
+
+>>>>>>> Stashed changes
 
 // Función para cargar contenido en el div principal
 function loadUrl(url) {
     $('#mainContent').load(url, function(response, status, xhr) {
         if (status === "error") {
+<<<<<<< Updated upstream
             $('#mainContent').html("<p>Error al cargar el contenido. Intente de nuevo más tarde.</p>");
+=======
+            $('#mainContent').html("<p><br/><br/><br/>Error al cargar el contenido. Intente de nuevo más tarde.</p>");
+>>>>>>> Stashed changes
             console.error("Error al cargar la página: " + xhr.status + " " + xhr.statusText);
         }
     });
@@ -107,7 +176,26 @@ function toggleSidebar() {
     $("#mainContent").toggleClass("main-content-expanded");
 }
 
+<<<<<<< Updated upstream
 
+=======
+// Para inicializar Flatpickr solo cuando corresponda 
+function initializeFlatpickr(selector, options) {
+	if (!$(selector).hasClass("flatpickr-input")) {
+		flatpickr(selector, options);
+	}
+}
+
+function limpiar(){
+	location.reload();
+}
+
+function triggerAO(){
+	if ( $('#s_areaorigen').prop('disabled') === true ){
+		$('#s_areaorigen').trigger('change');
+	}
+}
+>>>>>>> Stashed changes
 
 function update_elemento(){
 	let opcion = '1';
