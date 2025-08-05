@@ -1,6 +1,7 @@
 <?php
     session_start();
     require "autoloader.php";
-    use App\Config\classConfig;
-    $cCfg = new classConfig();
-    $cCfg->logOut();
+    use App\Componentes\DependencyContainer;
+    $container = new DependencyContainer();
+	$cCfg = $container->getFunciones();
+    $cCfg->logOut(); 

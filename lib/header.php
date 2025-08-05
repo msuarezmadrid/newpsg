@@ -4,13 +4,15 @@
     <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" sizes="32x32" ></link>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $cCfn->boostrapCss(); ?>">
 
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?php echo $cCfn->jqueryMin(); ?>"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="<?php echo $cCfn->boostrapJs(); ?>"></script>
+	
+    <script src="<?php echo $cCfn->functions(); ?>"></script>
 
     <style>
         body {
