@@ -1,6 +1,442 @@
-<div id="mySidebar" class="sidebar">
-    <a href="#" data-url="./panel/index.php">Panel</a>
-    <a href="#" data-url="./tp/index.php">Trabajos Programados</a>
-    <a href="#">Datos de Red</a>
-    <a href="#">Creaci&oacute;n de usuarios</a>
-</div>
+<?php 
+    
+	$cCfn->checkSession();
+	$user = $cCfn->getUser();
+	$file=basename(__FILE__); 
+	
+	$params=[$user];
+	$sql = "select ORIGEN from intradb.TP_AREA_ORIGEN where USUARIO=? ";
+	$result = $cCfn->exeQuery(null,$params,'s',$cCfn->getLocal(),$sql);
+	$row = $result->fetch_assoc();
+	$area_origen = $row['ORIGEN'];
+?>
+	<div id="mySidebar" class="sidebar">
+		<p>
+			<?php 
+				$arrUserMantenedores = array("o&m_allware", "mtenorio");
+				if (in_array($user, $arrUserMantenedores)) {
+					echo "<a href='#' data-url='mantenedores_seguridad/mantenedor_clave.php' >Mantenedor configuraci&oacute;n de clave</a>";
+					echo "<a href='#' data-url='mantenedores_seguridad/mantenedor_bloqueo.php' >Mantenedor bloqueo de cuentas</a>";
+				}
+				#### PANEL DE CONTINGENCIA 
+				if ( $cCfn->checkProfile("panel_contingencia")) {
+					echo "<a href='#' data-url='ema/index.php'>Estado HLR</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("notificaciones")) {
+					echo "<a href='#' data-url='notifica/adm.php'>Notificaciones</a>";
+				}
+				if ( $cCfn->checkProfile("Plan_Tem")) {
+					echo "<a href='#' data-url='actividades/actividades_menu.php'>Planificacion temprana</a>";
+				}
+				if ( $cCfn->checkProfile("SOLOPID")) {
+
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("VGL")) {
+
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='tasks/tareas.php'>Tareas</a>";
+					echo "<a href='#' data-url='web_contactos/main.php' target='blank'>Web de Contactos</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("RFR")) {
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='tasks/tareas.php'>Tareas</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("mmherrera")) {
+
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("MenuNewSMS")) {
+
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("Inew")) {
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					//Agregado 11-02-2015
+					if ( $cCfn->checkProfile("Bitacora")) {
+						echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					}
+					if ( $cCfn->checkProfile("Problemas")) {
+						echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					}
+					if ( $cCfn->checkProfile("DatosdeRed")) {
+						echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					}
+					die;
+				}
+				$arrUserUsuarios_psg = array("o&m_allware", "racunav");
+				if (in_array($user, $arrUserUsuarios_psg)) {
+					echo "<a href='#' data-url='usuarios/index_psg_users.php'>Identificaci&oacute;n Usuarios</a>";
+				}
+				echo "<a href='#' data-url='rfpsg/index_rfpsg.php'>RF-PSG</a>";
+				echo "<a href='#' data-url='mvno_falabella/'>N&uacute;meros de Prueba MVNO</a>";
+				if ($user == 'o&m_allware' or $user == 'soporteadc' or $user == 'pruebasfu' or $user == 'creacionfu' or $user == 'mtenorio' or $user == 'gbalart' or $user == 'ccb' or $user == 'racunav' or $user == 'rgaray') {
+					echo "<a href='#' data-url='sendmail/form_mail.php'>Mail ADC</a>";
+				}
+				if ($user == 'o&m_allware'  or $user == 'rvcornejo' or $user == 'cfvalenzuela' or $user == 'hfleiva' or $user == 'nguzman' or  $user == 'alldesapp' or  $user == 'achope' or  $user == 'enmunoz' or $user == 'vaguilar' or $user == 'agrinspun' or $user == 'jmarin' or $user == 'pmoreno' or $user == 'cserrailler' or $user == 'mstoledo' or $user == 'fmoya' or $user == 'hlabrin' or $user == 'pccontreras' or $user == 'hbsilva' or $user == 'sponce' or $user == 'mnovella' or $user == 'alvera') {
+					echo "<a href='#' data-url='ema/menu_pm.php'>PM HLR</a>";
+				}
+				echo "<a href='#' data-url='psg_usuarios/index_usuarios.php'>Adm. Usuarios</a>";
+				if ( $cCfn->checkProfile("gbalart")) {
+
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("T2B")) {
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				echo "<a href='#' data-url='provisioning_cbc/index.php'>Provisioning CBC</a>";
+				if ( $cCfn->checkProfile("Proyectos Energia y Clima")) {
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				}
+				if ( $cCfn->checkProfile("Biblioteca")) echo "<a href='#' data-url='library/library.php'>Biblioteca</a>";
+				if ( $cCfn->checkProfile("SCOB")) {
+					echo "<a href='#' data-url='CargasSCOB/'>Cargas de Bolsas</a>";
+				}
+				if ( $cCfn->checkProfile("solo_sms")) {
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("opervreg")) {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='php_sup/supervision.php'>Supervisi&oacute;n de Red</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos Programados</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("GestionAccesoRes")) {
+					echo "<a href='#' data-url='netw_data/sitios_gestion_menu.php'>Sitios Gesti&oacute;n Acceso</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("GestionAcceso")) {
+					echo "<a href='#' data-url='netw_data/sitios_gestion_menu.php'>Sitios Gesti&oacute;n Acceso</a>";
+				}
+				echo  $cCfn->checkProfile("testcalidad");
+				# agregado para test allware
+				if ( $cCfn->checkProfile("testcalidad")) {
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					die;
+				}
+				# codigo para perfil SupervisoressNOC en /opt/sdp/portalpsg/site/indice.php linea 211
+				# solicitado por Ma. Eugenia Leyton Saavedra
+				if ( $cCfn->checkProfile("SupervisoressNOC")) {
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("sac")) {
+
+					echo "<a href='#' data-url='sac_psg/menu_consulta_sac.php'>Consultas SAC</a>";
+					die;
+				}
+				
+				# RFPSG 181
+				if ( $cCfn->checkProfile("ProfileOperadorRed")) {
+					echo "<a href='#' data-url='c_usr/creacion_usuariosV2.php'>Creaci&oacute;n de usuarios</a>";
+					echo "<a href='#' data-url='php_sup/menu_calidadOyM.php'>Calidad O&M</a>";
+					echo "<a href='#' data-url='php_sup/menu_OMRoaming.php'>O&M Roaming</a>";
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='php_sup/supervision.php'>Supervision Red</a>";
+					echo "<a href='#' data-url='stat_alarms/alarms.php'>Alarmas estadisticas</a>";
+					echo "<a href='#' data-url='check/consistent.php'>Consistencia Red</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=PROCEDIMIENTOS'>Documentos de Operaci&oacute;n</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=ESCALAMIENTO'>Escalamientos</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='tasks/tareas.php'>Tareas</a>";
+					echo "<a href='#' data-url='reclamos/menu_reclamos.php'>Reclamos</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='roaming/menu.php'>Datos de Roaming</a>";
+					echo "<a href='#' data-url='pruebas/menu.php'>Recargas manuales</a>";
+					echo "<a href='#' data-url='backup/respaldo.php'>Respaldos</a>";
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					echo "<a href='#' data-url='links/menu_links.php'>Links relacionados</a>";
+					echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					echo "<a href='#' data-url='web_contactos/main.php' target='blank'>Web de Contactos</a>";
+					die;
+				}
+				if ($area_origen == "Integracion y Plataformas VAS" || $area_origen == "Soluciones Tecnologicas" || $area_origen == "Operacion Plataformas" || $area_origen == "Operacion Servicios VAS"  || $area_origen == "Operacion Mediacion y Tarificacion" || $user == "o&m_allware" || $user == "ivillar" || $user == "czenteno" || $user == "aumoreno" || $user == "lmquezada" || $user == "tssanmartin" || $area_origen == "Project Manager") {
+					echo "<a href='#' data-url='actividades/actividades_menu.php'>Planificaci&oacute;n temprana</a>";
+				}
+				echo "<a href='#' data-url='php_sup/menu_calidadOyM.php'>Calidad O&amp;M</a>";
+				echo "<a href='#' data-url='php_sup/menu_OMRoaming.php'>O&amp;M Roaming</a>";
+				if ( $cCfn->checkProfile("CBE")) {
+					echo "<a href='#' data-url='cbc/cbe.V.php'>Mensajes CBE</a>";
+				}
+				if ( $cCfn->checkProfile("ProfileElectromecanica")) {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='php_sup/supervision.php'>Supervision Red</a>";
+					echo "<a href='#' data-url='stat_alarms/alarms.php'>Alarmas estad&iacute;sticas</a>";
+					echo "<a href='#' data-url='check/consistent.php'>Consistencia Red</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=PROCEDIMIENTOS'>Documentos de Operaci&oacute;n</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=ESCALAMIENTO'>Escalamientos</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='tasks/tareas.php'>Tareas</a>";
+					echo "<a href='#' data-url='reclamos/menu_reclamos.php'>Reclamos</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='roaming/menu.php'>Datos de Roaming</a>";
+					echo "<a href='#' data-url='pruebas/menu.php'>Recargas manuales</a>";
+					echo "<a href='#' data-url='backup/respaldo.php'>Respaldos</a>";
+					echo "<a href='#' data-url='library/library.php'>Biblioteca</a>";
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					echo "<a href='#' data-url='links/menu_links.php'>Links relacionados</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					echo "<a href='#' data-url='formReclamos/reclamos.php'>Formulario de Reclamos, Incidentes y No Conformidades</a>";
+					echo "<a href='#' data-url='psg_manten/index.php'>Adm. Infraestructura</a>";
+					echo "<a href='#' data-url='psg_energia/index.php'>Adm. Energia</a>";
+					die;
+				}
+				if ( $cCfn->checkProfile("Guest Sup")) {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='stat_alarms/alarms.php'>Alarmas estad&iacute;sticas</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='reclamos/menu_reclamos.php'>Reclamos</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='library/library.php'>Biblioteca</a>";
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					echo "<a href='#' data-url='notifica/adm.php'>Notificaciones</a>";
+					if (!$cCfn->checkProfile("NoBackCS")) {
+						echo "<a href='#' data-url='BackServ/menu_serv.php'>Back Comunicaci&oacute;n y Servicios</a>";
+					}
+					if (( $cCfn->checkProfile("CaiEma")) || ( $cCfn->checkProfile("AdminEma"))) {
+						echo "<a href='#' data-url='ema/index.php'>Estado HLR</a>";
+						echo "<a href='#' data-url='sac_psg/menu_consulta_sac.php'>Consultas SAC</a>";
+					}
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Guest Ejec")) {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='stat_alarms/alarms.php'>Alarmas estad&iacute;sticas</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='reclamos/menu_reclamos.php'>Reclamos</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					if ( $cCfn->checkProfile("Reportes Gestion")) echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					if ( $cCfn->checkProfile("Bitacora")) echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Guest Mkt")) {
+					if ( $cCfn->checkProfile("Mkt")) {
+						echo "<a href='#' data-url='mkt/mkt.php'>MKT</a>";
+					}
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					if ( $cCfn->checkProfile("Guest Sitios")) {
+						echo "<a href='#' data-url='php_sup/site_form.php'>Datos de sitios</a>";
+						echo "<a href='#' data-url='php_sup/sitiosToGoogle.php'>Exportar a Google</a>";
+					}
+					if ( $cCfn->checkProfile("usr_infraestructura")) {
+						echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+						echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+						echo "<a href='#' data-url='psg_manten/index.php'>Adm. Infraestructura</a>";
+					}
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Guest pru")) { # agregado para perfil de entel prueba 
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					if (( $cCfn->checkProfile("CaiEma")) || ( $cCfn->checkProfile("AdminEma"))) {
+						echo "<a href='#' data-url='ema/index.php'>Estado HLR</a>";
+						echo "<a href='#' data-url='sac_psg/menu_consulta_sac.php'>Consultas SAC</a>";
+					}
+					if ( $cCfn->checkProfile("Panel"))  echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					else if ( $cCfn->checkProfile("Reportes Gestion")) echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Guest Inf")) {
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					if ( $cCfn->checkProfile("Guest Sitios")) {
+						echo "<a href='#' data-url='php_sup/site_form.php'>Datos de sitios</a>";
+					}
+					if ( $cCfn->checkProfile("Bitacora")) {
+						echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					}
+					if ( $cCfn->checkProfile("Panel")) {
+						echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					}
+					if ( $cCfn->checkProfile("adm_tramas")) {
+						echo "<a href='#' data-url='psg_tramas/index.php'>Adm. Tramas</a>";
+					}
+					if ( $cCfn->checkProfile("adm_energia")) {
+						echo "<a href='#' data-url='psg_energia/index.php'>Adm. Energia</a>";
+					}
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Guest Inst")) {
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else if ( $cCfn->checkProfile("Panel")) {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					if ( $cCfn->checkProfile("WebNoConformidad")) {
+						echo "<a href='#' data-url='formReclamos/reclamos.php'>Formulario de Reclamos, Incidentes y No Conformidades</a>";
+					}
+					if ( $cCfn->checkProfile("Bitacora")) {
+						echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					}
+					if ( $cCfn->checkProfile("Ingresar TP")) {
+						echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					}
+					if ( $cCfn->checkProfile("usr_infraestructura")) {
+						echo "<a href='#' data-url='psg_manten/index.php'>Adm. Infraestructura</a>";
+					}
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					if ( $cCfn->checkProfile("Reportes Gestion")) echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+				} else {
+					echo "<a href='#' data-url='panel/nmc.php'>Panel</a>";
+					echo "<a href='#' data-url='php_sup/supervision.php'>Supervisi&oacute;n Red</a>";
+					echo "<a href='#' data-url='stat_alarms/alarms.php'>Alarmas estad&iacute;sticas</a>";
+					echo "<a href='#' data-url='check/consistent.php'>Consistencia Red</a>";
+					if ( $cCfn->checkProfile("Bitacora")) echo "<a href='#' data-url='logbook/logbook.php'>Bit&aacute;cora</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=PROCEDIMIENTOS'>Documentos de Operaci&oacute;n</a>";
+					echo "<a href='#' data-url='library/library_query.php?keyword=ESCALAMIENTO'>Escalamientos</a>";
+					echo "<a href='#' data-url='pid/pid.php'>Problemas</a>";
+					echo "<a href='#' data-url='tp/planned.php'>Trabajos programados</a>";
+					echo "<a href='#' data-url='proj/proj.php'>Proyecto</a>";
+					if ( $cCfn->checkProfile("Menu SC")) echo "<a href='#' data-url='sc/sc.php'>Solicitudes de Cobertura</a>";
+					echo "<a href='#' data-url='tasks/tareas.php'>Tareas</a>";
+					echo "<a href='#' data-url='reclamos/menu_reclamos.php'>Reclamos</a>";
+					echo "<a href='#' data-url='netw_data/datos.php'>Datos de Red</a>";
+					echo "<a href='#' data-url='disp_celda/panel_disp_2g.php'>Panel de Disponibilidad</a>";
+					echo "<a href='#' data-url='roaming/menu.php'>Datos de Roaming</a>";
+					echo "<a href='#' data-url='pruebas/menu.php'>Recargas manuales</a>";
+					echo "<a href='#' data-url='backup/respaldo.php'>Respaldos</a>";
+					echo "<a href='#' data-url='library/library.php'>Biblioteca</a>";
+					echo "<a href='#' data-url='messages/index.php'>Mensajes SMS</a>";
+					if ( $cCfn->checkProfile("Adm Problemas")) echo "<a href='#' data-url='notifica/adm.php'>Notificaciones</a>";
+					echo "<a href='#' data-url='links/menu_links.php'>Links relacionados</a>";
+					if ( $cCfn->checkProfile("Administracion Turnos") or  $cCfn->checkProfile("Usuario Turnos")) echo "<a href='#' data-url='admin/administracion.php'>Administraci&oacute;n turnos</a>";
+					if ( $cCfn->checkProfile("Administracion Responsables")) echo "<a href='#' data-url='site_owner/administracion.php'>Administraci&oacute;n responsables de sitios</a>";
+					if ( $cCfn->checkProfile("Reportes Gestion")) echo "<a href='#' data-url='reports/menu_reports.php'>Reportes de gesti&oacute;n</a>";
+					if ( $cCfn->checkProfile("Debug")) echo "<a href='#' data-url='debug/menu.php'>Debug</a>";
+					if ( $cCfn->checkProfile("Sugerencias")) echo "<a href='#' data-url='sugerencias/menu.php'>Sugerencias</a>";
+					echo "<a href='#' data-url='favoritos/mis_favoritos.php'>Favoritos</a>";
+					echo "<a href='#' data-url='inbox/inbox.php'>Inbox</a>";
+					echo "<a href='#' data-url='status.php'>Status</a>";
+					if ( $cCfn->checkProfile("BackServ")) echo "<a href='#' data-url='BackServ/menu_serv.php'>Back Comunicaci&oacute;n y Servicios</a>";
+					# Mantenedor de Noticias
+					if ( $cCfn->checkProfile("Adm News"))  echo "<a href='#' data-url='news/mantenedor_noticias.php'>Mantenedor de Noticias</a>";
+					if ( $cCfn->checkProfile("Calendario TP")) echo "<a href='#' data-url='tp/gestion_tp.php'>Gestion TP</a>";
+					# se agrega usuario "rppinto"
+					if ($user == 'cmadsen' or $user == 'jgcorrea' or $user == 'cmonsalve' or $user == 'minzunza' or $user == 'pitorres' or $user == 'rppinto' or $user == 'o&m_allware') {
+						echo "<a href='#' data-url='netw_data/consistenciaUpload.php'>Consistencia OSS-ING</a>";
+						echo "<a href='#' data-url='netw_data/consistenciaReport.php'>Reporte consistencia</a>";
+					}
+					# ingreso a web de contactos (NOC)
+					if ( $cCfn->checkProfile("WC_admin") or  $cCfn->checkProfile("WC_user")) {
+						echo "<a href='#' data-url='web_contactos/main.php' target='blank'>Web de Contactos</a>";
+					}
+					if ( $cCfn->checkProfile("WebNoConformidad")) {
+						echo "<a href='#' data-url='formReclamos/reclamos.php'>Formulario de Reclamos, Incidentes y No Conformidades</a>";
+					}
+					# CONSULTA EMA
+					if (( $cCfn->checkProfile("CaiEma")) || ( $cCfn->checkProfile("AdminEma"))) {
+						echo "<a href='#' data-url='ema/index.php'>Estado HLR</a>";
+						echo "<a href='#' data-url='sac_psg/menu_consulta_sac.php'>Consultas SAC</a>";
+					}
+					if ( $cCfn->checkProfile("adm_tramas") ||  $cCfn->checkProfile("usr_tramas")) {
+						echo "<a href='#' data-url='psg_tramas/index.php'>Adm. Tramas</a>";
+					}
+					if ( $cCfn->checkProfile("usr_infraestructura")) {
+						echo "<a href='#' data-url='psg_manten/index.php'>Adm. Infraestructura</a>";
+					}
+					if ( $cCfn->checkProfile("adm_energia") ||  $cCfn->checkProfile("usr_energia")) {
+						echo "<a href='#' data-url='psg_energia/index.php'>Adm. Energia</a>";
+					}
+					if ( $cCfn->checkProfile("c_usr")) {
+						echo "<a href='#' data-url='c_usr/creacion_usuariosV2.php'>Creaci&oacute;n de usuarios</a>";
+					}
+					if ( $cCfn->checkProfile("AcreditacionMineraAdmin") ||  $cCfn->checkProfile("AcreditacionMineraUsuario")) {
+						echo "<a href='#' data-url='acreditacion/acreditacionusuario.php'>Proceso de Acreditaci&oacute;n</a>";
+						if ( $cCfn->checkProfile("AcreditacionMineraAdmin")) {
+							echo "<a href='#' data-url='acreditacion/acreditacion.php'>Definici&oacute;n de Acreditaciones</a>";
+							echo "<a href='#' data-url='acreditacion/supervision.php'>Supervisi&oacute;n de Acreditaciones</a>";
+							echo "<a href='#' data-url='acreditacion/mantenedores.php'>Mantenedores de Tablas</a>";
+						}
+					}
+					# RFPSG224: Repuestos Nacional Switch 
+					if (( $cCfn->checkProfile("RNS_user")) || ( $cCfn->checkProfile("RNS_admin"))) {
+						echo "<a href='#' data-url='rns'>Repuestos Nacional Switch</a>";
+					}
+					# ------------------------------------
+				}
+			?>
+			
+		</p>
+	</div>

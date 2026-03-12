@@ -12,5 +12,6 @@ if [ -z ${var} ]; then
 	echo "PARAMETRO VACIO"
 else 
 	#echo ${var} | base64 
-	php -r "echo base64_encode('${var}');"
+	codif=`php -r "echo base64_encode('${var}');"`
+	echo "$codif"
 fi

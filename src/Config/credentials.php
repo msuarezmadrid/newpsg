@@ -1,8 +1,8 @@
 <?php 
     $credentials = [
         "logs" => [
-            #tmp_log="/tmp/web_log",
-            "tmp_log" => "C:\\xampp\htdocs\\newPSG\logs\web_log",
+            "tmp_log"=>"/var/log/psg/web_log",
+            "login_log"=>"/var/log/psg/login_log"
         ],
         "local" => [
             "user" => "cm9vdA==",
@@ -12,13 +12,18 @@
         ],
         "intradb" => [
             "user" => "YWxsd2FyZQ==",
-            "pass" => "eEAzRHJaNWc1aWpOR3pf",
-            "host" => "MTcyLjE4LjE1NS4xNjY="
+            "pass" => "eEAzRHJaNWc1aWpOR3pf", # localhost 
+            // "host" => "MTcyLjE4LjE1NS4xNjY=" # ...166
+			"host" => "bG9jYWxob3N0", # localhost 
+			// "pass" => "YWxsd2FyZV8yMDI1",
+			// "host" => "MTkyLjE2OC4xMTAuMTgw", # nueva psg, nueva bd 
+			"db"   => "intradb"
         ],
         "o_m" => [
             "user" => "YWxsd2FyZQ==",
             "pass" => "eEAzRHJaNWc1aWpOR3pf",
-            "host" => "MTcyLjE4LjE1NS4xNjY="
+            "host" => "MTcyLjE4LjE1NS4xNjY=",
+			"db"   => "o_m"
         ],
         "dbhudson" => [
             "user" => "cm9vdA==",

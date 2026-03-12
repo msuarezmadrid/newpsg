@@ -1,5 +1,7 @@
 <?php
     define("BASE_PATH", __DIR__);
+	define("BASE_URL", "/newpsg");
+	// error_log(BASE_URL);
     spl_autoload_register(function ($class) {
         $prefix = 'App\\';
         $base_dir = BASE_PATH . '/src/';
