@@ -18,13 +18,13 @@
 		<a href="<?php echo $base_path; ?>/bitacora.php" class='main-link auto-refresh' >Bit&aacute;cora:</a>
 		Bit&aacute;cora actual, solo con eventos abiertos. Se actualiza autom&aacute;ticamente cada minuto.</p>
 	<p>
-		<a href="<?php echo $base_path; ?>/mi_bitacora.php" target="_blank">Mi Bit&aacute;cora:</a>
+		<a href="<?php echo $base_path; ?>/mi_bitacora.php" class='main-link auto-refresh'>Mi Bit&aacute;cora:</a>
 		Bit&aacute;cora actual, solo con eventos abiertos por el usuario. Se actualiza autom&aacute;ticamente cada minuto.</p>
 	<p>
 		<a href="<?php echo $base_path; ?>/bitacora_de.php" target="_blank">Bit&aacute;cora de:</a>
 		Bit&aacute;cora actual, solo con eventos abiertos por cierto usuario.</p>
 	<p>
-		<a href="<?php echo $base_path; ?>/bitacora_sev.php" target="_blank">Bit&aacute;cora Severidad</a>
+		<a href="<?php echo $base_path; ?>/bitacora_sev.php" class='main-link auto-refresh'>Bit&aacute;cora Severidad</a>
 		Bit&aacute;cora actual, solo con eventos abiertos con severidad mayor o igual que. Se actualiza autom&aacute;ticamente cada minuto.</p>
 	<p>
 		<a href="<?php echo $base_path; ?>/bitacora_grupo.php" target="_blank">Bit&aacute;cora de &aacute;rea:</a>
@@ -48,7 +48,7 @@
 	<p>
 		Combina bit&aacute;cora, problemas, tareas, y trabajos programados</p>
 	<p>
-		<a href="<?php echo $base_path; ?>/log.php" target="_blank">Log:</a>
+		<a href="<?php echo $base_path; ?>/log.php" class='main-link auto-refresh'>Log:</a>
 		Ultimos eventos en la red. Se actualiza autom&aacute;ticamente cada minuto.</p>
 	<p>
 		<a href="<?php echo $base_path; ?>/scroll_log.php" target="_blank">Log:</a>

@@ -1,8 +1,8 @@
 <?php
 	function ver_bitacora($sql,$usr,$modo_bitacora,$opcion=0){
-		global $cCfn,$params,$modulo;
+		global $cCfn,$params,$modulo,$types,$base_path;
 		
-		$result = $cCfn->exeQuery($sql,$params,'s',$cCfn->getLocal(),null,$modulo);
+		$result = $cCfn->exeQuery($sql,$params,$types,$cCfn->getLocal(),null,$modulo);
 		$r=0;
 		while ($row = $result->fetch_assoc()) {
 			$anio_bit =  date("Y", strtotime($row['INICIO']));
@@ -42,7 +42,7 @@
 					<td>
 						<table border=2>
 							<tr>
-								<th><a href='../logbook/crear_accion.php?id=$bid'>ID</a></th>
+								<th><a href='$base_path/crear_accion.php?id=$bid'>ID</a></th>
 								<th>Inicio</th> ";
 			if( empty($fin) ){
 				$file="cerrar_bit"; # ARCHIVO CON LISTADO DE USUARIOS
@@ -51,30 +51,30 @@
 						$lista=file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
 				}
 				if( $usr==$owner || in_array($usr,$lista) ){
-					echo "<th><a href='../logbook/cerrar_bitacora.php?id=$bid'>Fin</a></th>";
+					echo "<th><a href='$base_path/cerrar_bitacora.php?id=$bid'>Fin</a></th>";
 				}
 				else{
 					echo "<th>Fin</th>";
 				}
 			}
 			else{
-				echo "<th><a href='../logbook/abrir_bitacora.php?id=$bid'>Fin</a></th>";
+				echo "<th><a href='$base_path/abrir_bitacora.php?id=$bid'>Fin</a></th>";
 			}
 			echo "
-					<th><a href='../logbook/editar_bitacora.php?id=$bid'>Titulo</a></th>
-					<th><a href='../logbook/add_node.php?id=$bid'>Sitio/Nodo/Servicio</a></th>
-					<th><a href='../logbook/edit_time.php?id=$bid&event=0'>Inicio Evento</a></th>
-					<th><a href='../logbook/edit_time.php?id=$bid&event=1'>Fin Evento</a></th>
-					<th><a href='../logbook/edit_severity.php?id=$bid'>Severidad</a></th>
-					<th><a href='../logbook/cambiar_tipo.php?id=$bid&tipo=$tipo'>Responsable</a></th>
-					<th><a href='../logbook/asociar_bitacora.php?id=$bid'>Asociada con</a></th>
+					<th><a href='$base_path/editar_bitacora.php?id=$bid'>Titulo</a></th>
+					<th><a href='$base_path/add_node.php?id=$bid'>Sitio/Nodo/Servicio</a></th>
+					<th><a href='$base_path/edit_time.php?id=$bid&event=0'>Inicio Evento</a></th>
+					<th><a href='$base_path/edit_time.php?id=$bid&event=1'>Fin Evento</a></th>
+					<th><a href='$base_path/edit_severity.php?id=$bid'>Severidad</a></th>
+					<th><a href='$base_path/cambiar_tipo.php?id=$bid&tipo=$tipo'>Responsable</a></th>
+					<th><a href='$base_path/asociar_bitacora.php?id=$bid'>Asociada con</a></th>
 					<th>Creado Por</th>
-					<th><a href='documentar_tp.php?bid=$bid'>Documentar</a></th>
-					<th><a href='asociar_sitios.php?bitacora=$bid'>Sitio(s)</a></th>
+					<th><a href='$base_path/documentar_tp.php?bid=$bid'>Documentar</a></th>
+					<th><a href='$base_path/asociar_sitios.php?bitacora=$bid'>Sitio(s)</a></th>
 				</tr>
 				<tr> ";
 			if( empty($opcion) ){
-				echo "<td><a href='../logbook/search_bit_query.php?numero=$bid' target='_blank'>$bid</a></td>";
+				echo "<td><a href='$base_path/search_bit_query.php?numero=$bid' target='_blank'>$bid</a></td>";
 			}
 			else{
 				echo "<td>$bid</td>";
@@ -102,7 +102,7 @@
 			
 			if( !empty($tipo) ){
 				if ($owner==$usr || in_array($usr,$lista) ){
-					echo "<td bgcolor='#00FF00'><a href='../logbook/transferir.php?bid=$bid'>$owner</a></td>";
+					echo "<td bgcolor='#00FF00'><a href='$base_path/transferir.php?bid=$bid'>$owner</a></td>";
 				}
 				else{
 					echo "<td bgcolor='#00FF00'>$owner</td>";
@@ -110,7 +110,7 @@
 			}
 			else{
 				if ($owner==$usr || in_array($usr,$lista) ){
-					echo "<td><a href='../logbook/transferir.php?bid=$bid'>$owner</a></td>";
+					echo "<td><a href='$base_path/transferir.php?bid=$bid'>$owner</a></td>";
 				}
 				else{
 					echo "<td>$owner</td>";
@@ -130,7 +130,7 @@
 				echo "<td>PID</td>";
 				echo "<td><a href='../pid/ver_pid.php?id=$id' target='_blank'>$id</a></td>";
 				echo "<td>$titulo</td>";
-				echo "<td><a href='../logbook/traspasar.php?bid=$bid&tipo=1&id=$id' target='_blank'>(T)</a></td>";
+				echo "<td><a href='$base_path/traspasar.php?bid=$bid&tipo=1&id=$id' target='_blank'>(T)</a></td>";
 				echo "</tr>";
 				$inicio="-";
 				$nodo="-";
@@ -147,7 +147,7 @@
 				echo "<td>TP</td>\n";
 				echo "<td><a href='../tp/ver_planned.php?id=$id' target='_blank'>$id</a></td>\n";
 				echo "<td>$titulo</td>\n";
-				echo "<td><a href='../logbook/traspasar.php?bid=$bid&tipo=2&id=$id' target='_blank'>(T)</a></td>\n";
+				echo "<td><a href='$base_path/traspasar.php?bid=$bid&tipo=2&id=$id' target='_blank'>(T)</a></td>\n";
 				echo "</tr>";
 				$inicio="-";
 				$nodo="-";
@@ -164,7 +164,7 @@
 				echo "<td>TAR</td>\n";
 				echo "<td><a href='../tasks/ver_tarea.php?id=$id' target='_blank'>$id</a></td>\n";
 				echo "<td>$titulo</td>\n";
-				echo "<td><a href='../logbook/traspasar.php?bid=$bid&tipo=3&id=$id' target='_blank'>(T)</a></td>\n";
+				echo "<td><a href='$base_path/traspasar.php?bid=$bid&tipo=3&id=$id' target='_blank'>(T)</a></td>\n";
 				echo "</tr>";
 				$inicio="-";
 				$nodo="-";
@@ -181,7 +181,7 @@
 				echo "<td>SC</td>\n";
 				echo "<td><a href='../sc/ver_sc.php?id=$id' target='_blank'>$id</a></td>\n";
 				echo "<td>$titulo</td>\n";
-				echo "<td><a href='../logbook/traspasar.php?bid=$bid&tipo=4&id=$id' target='_blank'>(T)</a></td>\n";
+				echo "<td><a href='$base_path/traspasar.php?bid=$bid&tipo=4&id=$id' target='_blank'>(T)</a></td>\n";
 				echo "</tr>";
 				$inicio="-";
 				$nodo="-";

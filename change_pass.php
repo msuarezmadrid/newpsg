@@ -322,7 +322,7 @@
 	
 	$params=[$usr];
 	$sql = "SELECT md5_passw, lastchange, categoria, profile, roles, usr, IFNULL(intentos_fallidos, 0) AS intentos, estado FROM intradb.users WHERE usr=? ";
-	$result=$cCfn->exeQuery(null,$params,'s',$this->local,$sql);
+	$result=$cCfn->exeQuery(null,$params,'s',$cCfn->getLocal(),$sql);
 	$row = $result->fetch_assoc();
 	if( !empty($row) ) {
 		## GENERAMOS DATOS DE SESION 

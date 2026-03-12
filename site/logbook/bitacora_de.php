@@ -5,6 +5,7 @@
 	use App\Componentes\DependencyContainer;
 
     $container = new DependencyContainer();
+	$cCfg = $container->getConfig();
 	$cCfn = $container->getFunciones();
 	$cCfn->checkSession();
 	$modulo="logbook";
@@ -18,7 +19,7 @@
 	$ahora=$date->format('Y-m-d H:i:s');
 	
 	$modo_bitacora = $_GET["modo"] ?? $_POST["modo"] ?? '';
-	$usr = $_GET["usr"] ?? $_POST["usr"] ?? ''; ?>
+	$usr = $_GET["usr"] ?? $_POST["usr"] ?? $logged_usr; ?>
 	
 	<h3 align="CENTER">
 		Bitacora de <?php echo "$usr al $ahora"; ?>
@@ -49,5 +50,6 @@
 	</form>
 	<?php
 		$params = [ $usr ];
+		$types="s";
 		$sql="sel_mi_bit";
 		ver_bitacora($sql,$logged_usr,$modo_bitacora); ?>

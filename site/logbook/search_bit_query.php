@@ -1,9 +1,14 @@
 <?php
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
+	require "../../autoloader.php";
+	
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
+	
 	$cCfn->checkSession();
-	$db="intradb";
+	$modulo="logbook";
 	$date = new DateTime();
 	
 	include_once("ver_bitacora.php");
@@ -26,37 +31,25 @@
 		
 		$arr_registros= [$numero,$descripcion,$nodo,$creador,$area,$fecha1,$fecha2,$abiertas,$severidad];
 		if( $cCfn->hayElementosVacios($arr_registros) ){
-			echo "<!DOCTYPE html>
-			<html>
-				<head>
-					<title>Bitacora</title>
+			echo "	<title>Bitacora</title>
 					<?php include_once('../../protected/style.php') ?>
-				</head>
-				<body>
-					<h3 align='center' >No hay data.</h3>
-				</body>
-			</html>";
+				
+					<h3 align='center' >No hay data.</h3> ";
 			exit;
 		}
 		if ( empty($modo) ) $modo = 0;
+		
+		if( !empty($numero) ){
+			echo "<title>Bitacora $numero</title>";
+		}
+		else{
+			echo "<title>B&uacute;squeda Bitacora</title>";
+		}
 		?>
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Bitacora</title>
-			<?php
-			if( !empty($numero) ){
-				echo "<title>Bitacora $numero</title>";
-			}
-			else{
-				echo "<title>Busqueda Bitacora</title>";
-			}
-			include_once("../../protected/style.php") ?>
 			<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 			<script type="text/javascript" src="js/bitacora_accion.js"></script>
 			<script type="text/javascript" src="js/jquery.zclip.js"></script>
-		</head>
-		<body>
+			
 			<h3 align="center">Resultado de b&uacute;squeda</h3>
 			<?php
 				$clauses="";
@@ -65,11 +58,9 @@
 				
 				if ( !empty($numero) ){
 					$clauses .=" WHERE BITACORA.ID='$numero' ";
-					$params = [
-						":from" => $from,
-						":clauses" => $clauses
-					];
-					$sql=$cCfn->getQuery("search_bit", $params);
+					$params = [ $from, $clauses ];
+					$types="ii";
+					$sql="search_bit";
 				}
 				else{
 					if ($descripcion != ""){
@@ -111,11 +102,9 @@
 						$clauses .= $aux . "( BITACORA.INICIO <= '$fecha2' OR BITACORA.FIN <= '$fecha2' OR BITACORA.EVENT_TIME <='$fecha2' OR BITACORA.CEASE_TIME <='$fecha2' )";
 					}
 					
-					$params = [
-						":from" => $from,
-						":clauses" => $clauses
-					];
-					$sql=$cCfn->getQuery("search_bit", $params);
+					$params = [ $from, $clauses ];
+					$types="ii";
+					$sql="search_bit";
 				}
 				
 				ver_bitacora($sql,$usr,$modo,1);
@@ -136,5 +125,4 @@
 			</div>";
 		echo $modal;
 	} ?>
-	</body>
-</html>
+	

@@ -1,9 +1,15 @@
 <?php
-	include_once("../../protected/classFunciones.php");
+	require "../../autoloader.php";
+	
 	session_start();
-	$cCfn = new classFunciones();
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
+	
 	$cCfn->checkSession();
-	$db="intradb";
+	$modulo="logbook";
+	
 	$date = new DateTime(); # clase DateTime global de PHP 
 	
 	include_once("ver_bitacora.php");
@@ -34,30 +40,21 @@
 	else if ($vert == "v"){
 		$offset=$offset+$nr_records;
 	} ?>
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Subgerencia Operaciones y Mantenimiento de Red</title>
-			<?php include_once("../../protected/style.php") ?>
-		</head>
-		<body>
-			<h3 align="CENTER">	Bitacora</h3>
-			<form action="scroll_bitacora.php" method="post" align="CENTER">
-				<input name="horiz" type="submit" value="<-" />Records: <?php echo $nr_records; ?><input name="horiz"  type="submit" value="->" />
-				<input name="vert" type="submit" value="^">Offset: <?php echo $offset; ?><input name="vert"  type="submit" value="v" />
-				<input type="radio" name="modo" <?php if( empty($modo_bitacora) ) echo "checked"; ?> value="0" />Expanded
-				<input type="radio" name="modo" <?php if ($modo_bitacora==1) echo "checked"; ?> value="1" />Compressed
-				<input type="submit" value="Refresh" />
-				<input type="hidden" name="offset" value="<?php echo $offset; ?>" /> 
-				<input type="hidden" name="nr_records" value="<?php echo $nr_records; ?>" /> 
-			</form>
-			<br/>
-			<?php
-				$params = [
-					":offset" => $offset,
-					":nr_records" => $nr_records
-				];
-				$sql=$cCfn->getQuery("sel_bit_scroll", $params);
-				ver_bitacora($sql,$usr,$modo_bitacora); ?>
-		</body>
-	</html>
+	
+	<h3 align="CENTER">	Bitacora</h3>
+	<form action="scroll_bitacora.php" method="post" align="CENTER">
+		<input name="horiz" type="submit" value="<-" />Records: <?php echo $nr_records; ?><input name="horiz"  type="submit" value="->" />
+		<input name="vert" type="submit" value="^">Offset: <?php echo $offset; ?><input name="vert"  type="submit" value="v" />
+		<input type="radio" name="modo" <?php if( empty($modo_bitacora) ) echo "checked"; ?> value="0" />Expanded
+		<input type="radio" name="modo" <?php if ($modo_bitacora==1) echo "checked"; ?> value="1" />Compressed
+		<input type="submit" value="Refresh" />
+		<input type="hidden" name="offset" value="<?php echo $offset; ?>" /> 
+		<input type="hidden" name="nr_records" value="<?php echo $nr_records; ?>" /> 
+	</form>
+	<br/>
+	<?php
+		$params = [ $offset, $nr_records ];
+		$types="ii";
+		$sql="sel_bit_scroll";
+		ver_bitacora($sql,$usr,$modo_bitacora); ?>
+	

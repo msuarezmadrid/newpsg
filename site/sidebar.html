@@ -1,11 +1,5 @@
 <?php 
-    /*require "../autoloader.php";
-    use App\Componentes\DependencyContainer;
-
-    $container = new DependencyContainer();
-	$cCfn = $container->getFunciones();
-	$cCfg = $container->getConfig();
-	$cCfnSeg = $container->getFuncionesSeguridad();*/
+    
 	$cCfn->checkSession();
 	$user = $cCfn->getUser();
 	$file=basename(__FILE__); 
@@ -99,8 +93,9 @@
 					}
 					die;
 				}
-				if ($user == 'o&m_allware' or $user == 'racunav' or  $user == 'cmcastro') {
-					echo "<a href='#' data-url='usuarios_psg/index_psg_users.php'>Identificaci&oacute;n Usuarios</a>";
+				$arrUserUsuarios_psg = array("o&m_allware", "racunav");
+				if (in_array($user, $arrUserUsuarios_psg)) {
+					echo "<a href='#' data-url='usuarios/index_psg_users.php'>Identificaci&oacute;n Usuarios</a>";
 				}
 				echo "<a href='#' data-url='rfpsg/index_rfpsg.php'>RF-PSG</a>";
 				echo "<a href='#' data-url='mvno_falabella/'>N&uacute;meros de Prueba MVNO</a>";

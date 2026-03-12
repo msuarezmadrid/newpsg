@@ -28,7 +28,7 @@
 	?>
 	
 		<h3 align="CENTER">
-			Bitacora al <?php echo $ahora ?> <a href="crear_bitacora.php">(Crear nueva)</a>
+			Bitacora al <?php echo $ahora ?> <a href="<?php echo $base_path; ?>/crear_bitacora.php">(Crear nueva)</a>
 		</h3>
 		<form id='filtroForm' action="<?php echo $base_path; ?>/bitacora.php" method="post">
 			<p>
@@ -85,7 +85,7 @@
 				
 				<table border='1'>
 					<tr>
-						<th><a href='crear_accion.php?id=<?php echo $bid; ?>'>ID</a></th>
+						<th><a href='<?php echo $base_path; ?>/crear_accion.php?id=<?php echo $bid; ?>'>ID</a></th>
 						<th>Inicio</th>
 						<?php 
 						$file="cerrar_bit"; # ARCHIVO CON LISTADO DE USUARIOS 
@@ -95,30 +95,30 @@
 						}
 						if( empty($fin) ){
 							if( $usr==$owner || in_array($usr,$lista) ){
-								echo "<th><a href='cerrar_bitacora.php?id=$bid'>Fin</a></th>";
+								echo "<th><a href='$base_path/cerrar_bitacora.php?id=$bid'>Fin</a></th>";
 							}
 							else{
 								echo "<th>Fin</th>";
 							}
 						}
 						else{
-							echo "<th><a href='abrir_bitacora.php?id=$bid'>Fin</a></th>";
+							echo "<th><a href='$base_path/abrir_bitacora.php?id=$bid'>Fin</a></th>";
 						} ?>
-						<th><a href='editar_bitacora.php?id=<?php echo $bid; ?>'>T&iacute;tulo</a></th>
-						<th><a href='add_node.php?id=<?php echo $bid; ?>'>Sitio/Nodo/Servicio</a></th>
-						<th><a href='edit_time.php?id=<?php echo $bid; ?>&event=0'>Inicio Evento</a></th>
-						<th><a href='edit_time.php?id=<?php echo $bid; ?>&event=1'>Fin Evento</a></th>
-						<th><a href='edit_severity.php?id=<?php echo $bid; ?>'>Severidad</a></th>
-						<th><a href='cambiar_tipo.php?id=<?php echo $bid; ?>&tipo=<?php echo $tipo; ?>'>Responsable</a></th>
-						<th><a href='asociar_bitacora.php?id=<?php echo $bid; ?>'>Asociada con</a></th>
+						<th><a href='<?php echo $base_path; ?>/editar_bitacora.php?id=<?php echo $bid; ?>'>T&iacute;tulo</a></th>
+						<th><a href='<?php echo $base_path; ?>/add_node.php?id=<?php echo $bid; ?>'>Sitio/Nodo/Servicio</a></th>
+						<th><a href='<?php echo $base_path; ?>/edit_time.php?id=<?php echo $bid; ?>&event=0'>Inicio Evento</a></th>
+						<th><a href='<?php echo $base_path; ?>/edit_time.php?id=<?php echo $bid; ?>&event=1'>Fin Evento</a></th>
+						<th><a href='<?php echo $base_path; ?>/edit_severity.php?id=<?php echo $bid; ?>'>Severidad</a></th>
+						<th><a href='<?php echo $base_path; ?>/cambiar_tipo.php?id=<?php echo $bid; ?>&tipo=<?php echo $tipo; ?>'>Responsable</a></th>
+						<th><a href='<?php echo $base_path; ?>/asociar_bitacora.php?id=<?php echo $bid; ?>'>Asociada con</a></th>
 						<th>Creado Por</th>
-						<th><a href='documentar_tp.php?bid=<?php echo $bid; ?>'>Documentar</a></th>
-						<th><a href='asociar_sitios.php?bitacora=<?php echo $bid; ?>'>Sitio(s)</a></th>
+						<th><a href='<?php echo $base_path; ?>/documentar_tp.php?bid=<?php echo $bid; ?>'>Documentar</a></th>
+						<th><a href='<?php echo $base_path; ?>/asociar_sitios.php?bitacora=<?php echo $bid; ?>'>Sitio(s)</a></th>
 					</tr>
 					<tr>
 						<?php 
 						if( empty($opcion) ){
-							echo "<td><a href='search_bit_query.php?numero=$bid' target='_blank'>$bid</a></td>";
+							echo "<td><a href='$base_path/search_bit_query.php?numero=$bid' target='_blank'>$bid</a></td>";
 						}
 						else{
 							echo "<td>$bid</td>";
@@ -147,7 +147,7 @@
 							$lista=file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
 						}
 						if ($owner==$usr || in_array($usr,$lista) ){
-							echo "<td bgcolor='#00FF00'><a href='transferir.php?bid=$bid'>$owner</a></td>";
+							echo "<td bgcolor='#00FF00'><a href='$base_path/transferir.php?bid=$bid'>$owner</a></td>";
 						}
 						else{
 							echo "<td bgcolor=\"#00FF00\">$owner</td>";
@@ -166,7 +166,7 @@
 									<td>PID</td>
 									<td><a href='../pid/ver_pid.php?id=<?php echo $pid; ?>' target='_blank'><?php echo $pid; ?></a></td>
 									<td><?php echo $titulo; ?></td>
-									<td><a href='traspasar.php?bid=<?php echo $bid; ?>&tipo=1&id=<?php echo $pid; ?>' target='_blank'>(T)</a></td>
+									<td><a href='$base_path/traspasar.php?bid=<?php echo $bid; ?>&tipo=1&id=<?php echo $pid; ?>' target='_blank'>(T)</a></td>
 								</tr>
 								<?php 
 								$inicio="-";
@@ -182,7 +182,7 @@
 									<td>TP</td>
 									<td><a href='../tp/ver_planned.php?id=<?php echo $tp; ?>' target='_blank'><?php echo $tp; ?></a></td>
 									<td><?php echo $titulo; ?></td>
-									<td><a href='traspasar.php?bid=<?php echo $bid; ?>&tipo=2&id=<?php echo $tp; ?>' target='_blank'>(T)</a></td>
+									<td><a href='$base_path/traspasar.php?bid=<?php echo $bid; ?>&tipo=2&id=<?php echo $tp; ?>' target='_blank'>(T)</a></td>
 								</tr>
 								<?php 
 								$inicio="-";
@@ -198,7 +198,7 @@
 									<td>TAR</td>
 									<td><a href='../tasks/ver_tarea.php?id=<?php echo $tarea; ?>' target='_blank'><?php echo $tarea; ?></a></td>
 									<td><?php echo $titulo; ?></td>
-									<td><a href='traspasar.php?bid=<?php echo $bid; ?>&tipo=3&id=<?php echo $tarea; ?>' target='_blank'>(T)</a></td>
+									<td><a href='$base_path/traspasar.php?bid=<?php echo $bid; ?>&tipo=3&id=<?php echo $tarea; ?>' target='_blank'>(T)</a></td>
 								</tr>
 								<?php 
 								$inicio="-";
@@ -214,7 +214,7 @@
 									<td>SC</td>
 									<td><a href='../sc/ver_sc.php?id=<?php echo $sc; ?>' target='_blank'><?php echo $sc; ?></a></td>
 									<td><?php echo $titulo; ?></td>
-									<td><a href='traspasar.php?bid=<?php echo $bid; ?>&tipo=4&id=<?php echo $sc; ?>' target='_blank'>(T)</a></td>
+									<td><a href='$base_path/traspasar.php?bid=<?php echo $bid; ?>&tipo=4&id=<?php echo $sc; ?>' target='_blank'>(T)</a></td>
 								</tr>
 								<?php 
 								$inicio="-";

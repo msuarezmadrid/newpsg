@@ -18,4 +18,9 @@
         body {
             background-color: #e6e6e6;
         }
+		.centrar {
+			width: 400px;
+			margin: 0 auto;
+			text-align: left;
+		}
     </style>

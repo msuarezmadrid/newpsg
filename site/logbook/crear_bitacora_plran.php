@@ -1,10 +1,14 @@
 <?php
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
+	require "../../autoloader.php";
+	
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
 	$cCfn->checkSession();
+	$modulo="logbook";
 	$usr=$cCfn->getUser();
-	$db="intradb";
 	
 	$date = new DateTime();
 	$ahora=$date->format('Y-m-d H:i:s');
@@ -16,15 +20,11 @@
 	$nodo = $_GET["nodo"] ?? $_POST["nodo"] ?? '';
 ?>
 
-<html>
-	<head>
-		<title>Crear bitacora</title>
-		<?php include_once("../../protected/style.php") ?>
-		<script type="text/javascript" src="../lib/jquery/jquery-3.5.1.js"></script>
-		<script type="text/javascript" src="./js/javascript.js"></script>
-	</head>
+	<script type="text/javascript" src="lib/jquery/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="logbook/js/javascript.js"></script>
+	
 	<body onLoad="ObtenerIDs('todos');" >
-		<h1 align="CENTER">Crear bitacora primera l&iacute;nea RAN</h1>
+		<h1 align="CENTER">Crear bit&aacute;cora primera l&iacute;nea RAN</h1>
 		
 		<form onsubmit="Guardar_datos();" >
 			<table align="center" border="1" class="sample">
@@ -72,5 +72,3 @@
 			</table>
 		</form>
 	</body>
-</html>
-

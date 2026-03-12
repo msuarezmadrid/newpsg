@@ -12,9 +12,11 @@
         ],
         "intradb" => [
             "user" => "YWxsd2FyZQ==",
-            "pass" => "eEAzRHJaNWc1aWpOR3pf",
+            "pass" => "eEAzRHJaNWc1aWpOR3pf", # localhost 
             // "host" => "MTcyLjE4LjE1NS4xNjY=" # ...166
 			"host" => "bG9jYWxob3N0", # localhost 
+			// "pass" => "YWxsd2FyZV8yMDI1",
+			// "host" => "MTkyLjE2OC4xMTAuMTgw", # nueva psg, nueva bd 
 			"db"   => "intradb"
         ],
         "o_m" => [

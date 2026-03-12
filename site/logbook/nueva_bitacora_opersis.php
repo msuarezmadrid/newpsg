@@ -1,15 +1,13 @@
 <?php
-	/*include '../../protected/config_session.php';
-	include_once("../../protected/config.php");
-	include_once("../../protected/control.php");
-	include_once("../../protected/user.php");
-	include_once("../mark/jump_mark.php");*/
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
-	$cCfn->checkSession();
+	require "../../autoloader.php";
 	
-	$db="intradb";
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
+	$cCfn->checkSession();
+	$modulo="logbook";
 	
 	$accion 		= $_GET["accion"] ?? $_POST["accion"] ?? '';
 	$clasificacion 	= $_GET["clasificacion"] ?? $_POST["clasificacion"] ?? '';
@@ -74,18 +72,9 @@
 		$clasificacion = $clasificacion;
 	}
 	
-	$params = [
-		":titulo" => $clasificacion,
-		":usr" => $usr,
-		":tipo" => $tipo,
-		":severidad" => $severidad,
-		":lista" => $lista,
-		":bit_class" => $clasificacion,
-		":usr" => $usr 
-	];
-	$sql=$cCfn->getQuery("nueva_bit_opersis", $params);
-	// echo "sql nueva_bit_opersis: ".$sql."<br/>";
-	$result = $cCfn->exeQuery($sql,$db);
+	$params = [ $clasificacion, $usr, $tipo, $severidad, $lista, $clasificacion, $usr ];
+	$types="ssiisss";
+	$result = $cCfn->exeQuery("nueva_bit_opersis",$params,$types,$cCfn->getLocal(),null,$modulo);
 	
 	//$id=mysqli_insert_id();
 	$id=$result["insert_id"];
@@ -106,74 +95,42 @@
 	fclose($fp);
 	#####################################################################
 
-	$params = [
-		":id" => $id,
-		":servicio" => $servicio
-	];
-	$sql=$cCfn->getQuery("nueva_bit_opersis2", $params);
-	// echo "sql nueva_bit_opersis2: ".$sql."<br/>";
-	$result = $cCfn->exeQuery($sql,$db);
+	$params = [ $id, $servicio ];
+	$types="ss";
+	$result = $cCfn->exeQuery("nueva_bit_opersis2",$params,$types,$cCfn->getLocal(),null,$modulo);
 	
-	$params = [
-		":id" => $id,
-		":elemento" => $elemento
-	];
-	$sql=$cCfn->getQuery("nueva_bit_opersis3", $params);
-	// echo "sql nueva_bit_opersis3: ".$sql."<br/>";
-	$result = $cCfn->exeQuery($sql,$db);
-	
+	$params = [ $id, $elemento ];
+	$result = $cCfn->exeQuery("nueva_bit_opersis3",$params,$types,$cCfn->getLocal(),null,$modulo);
 	
 	if( !empty($comentario) ){
 		$comentario = addslashes($comentario);
-		$params = [
-			":usr" => $usr,
-			":id" => $id,
-			":comentario" => $comentario
-		];
-		$sql=$cCfn->getQuery("nueva_bit_comment", $params);
-		// echo "sql nueva_bit_comment: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $usr, $id, $comentario ];
+		$types="sis";
+		$result = $cCfn->exeQuery("nueva_bit_comment",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	if( $cerrar=="C" ){
-		$params = [
-			":id" => $id
-		];
-		$sql=$cCfn->getQuery("update_bit", $params);
-		// echo "sql update_bit: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $id ];
+		$types="i";
+		$result = $cCfn->exeQuery("update_bit",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	if( !empty($ihour) && !empty($iminute) ){
 		$time=$iyear . "-" . $imonth . "-" . $iday . " " . $ihour . ":" . $iminute . ":00";
-		$params = [
-			":id" => $id,
-			":time" => $time
-		];
-		$sql=$cCfn->getQuery("update_bit2", $params);
-		// echo "sql update_bit2: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $id, $time ];
+		$types="is";
+		$result = $cCfn->exeQuery("update_bit2",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	if ( !empty($fhour) && !empty($fminute) ){
-	  $time=$fyear . "-" . $fmonth . "-" . $fday . " " . $fhour . ":" . $fminute . ":00";
-	  $params = [
-			":id" => $id,
-			":time" => $time
-		];
-		$sql=$cCfn->getQuery("update_bit3", $params);
-		// echo "sql update_bit3: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$time=$fyear . "-" . $fmonth . "-" . $fday . " " . $fhour . ":" . $fminute . ":00";
+		$params = [ $id, $time ];
+		$types="is";
+		$result = $cCfn->exeQuery("update_bit3",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	?>
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Bitacora</title>
-			<?php include_once("../../protected/style.php") ?>
-		</head>
-		<body>
-			Bitacora <?php echo $id; ?> creada.
-		</body>
-	</html>
+		<title>Bitacora</title>
+		
+		Bitacora <?php echo $id; ?> creada.
+		

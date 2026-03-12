@@ -17,7 +17,7 @@
 	$ahora=$date->format('Y-m-d H:i:s');
 	
 	$modo_bitacora = $_GET["modo"] ?? $_POST["modo"] ?? '';
-	$usr = $_GET["usr"] ?? $_POST["usr"] ?? ''; ?>
+	$usr = $_GET["usr"] ?? $_POST["usr"] ?? $logged_usr; ?>
 	
 	
 	<h3 align="CENTER">	Bit&aacute;cora de <?php echo "$usr al $ahora"; ?> </h3>
@@ -47,6 +47,7 @@
 	</form>
 	<?php
 		$params = [ $usr ];
+		$types="s";
 		$sql="sel_bit_grupo";
 		ver_bitacora($sql,$logged_usr,$modo_bitacora); ?>
 		

@@ -1,9 +1,14 @@
 <?php
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
+	require "../../autoloader.php";
+	
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
 	$cCfn->checkSession();
-	$db="intradb";
+	$modulo="logbook";
+	$base_path=BASE_URL . "/site/logbook";
 	
 	$accion = $_GET["accion"] ?? $_POST["accion"] ?? '';
 	$severidad = $_GET["severidad"] ?? $_POST["severidad"] ?? '';
@@ -13,10 +18,9 @@
 	
 	$usr=$cCfn->getUser();
 	
-	$sql=$cCfn->getQuery("severidad_bit", NULL);
-	$result = $cCfn->exeQuery($sql,$db);
+	$result = $cCfn->exeQuery("severidad_bit",null,null,$cCfn->getLocal(),null,$modulo);
 	$sev_final=null;
-	foreach( $result as $sev ){
+	foreach( $sev = $result->fetch_assoc() ){
 		if( $sev['ID'] == $severidad ){
 			$sev_final = $sev['NOMBRE'];
 		}
@@ -31,31 +35,17 @@
 			$texto="$usr cambia severidad de $sev_inicial a $sev_final. ";
 		}
 		
-		$params = [
-			":id" => $id,
-			":severidad" => $severidad,
-			":mala" => $mala
-		];
-		$sql=$cCfn->getQuery("update_severity", $params);
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $id, $severidad, $mala ];
+		$types="iii";
+		$result = $cCfn->exeQuery("update_severity",$params,$types,$cCfn->getLocal(),null,$modulo);
 		
-		$params = [
-			":id" => $id,
-			":usr" => $usr,
-			":comentario" => $texto
-		];
-		$sql=$cCfn->getQuery("nueva_bit_comment", $params);
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $usr, $texto, $id ];
+		$types="ssi";
+		$result = $cCfn->exeQuery("nueva_bit_comment",$params,$types,$cCfn->getLocal(),null,$modulo);
 		
 	} ?>
-	<!DOCTYPE html>
-	<html >
-		<head>
-			<title>Editar Severidad</title>
-			<?php include_once("../../protected/style.php") ?>
-		</head>
-		<body>
-			<h2 align='center'>Bitacora <?php echo "$id"; ?></h2>
-			<h3 align='center' >Severidad modificada.</h3>
-		</body>
-	</html>
+	<title>Editar Severidad</title>
+	
+	<h2 align='center'>Bitacora <?php echo "$id"; ?></h2>
+	<h3 align='center' >Severidad modificada.</h3>
+	

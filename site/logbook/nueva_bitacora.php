@@ -1,15 +1,13 @@
 <?php
-	/* include '../../protected/config_session.php';
-	include_once("../../protected/config.php");
-	include_once("../../protected/control.php");
-	include_once("../../protected/user.php");
-	include_once("../mark/jump_mark.php"); */
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
-	$cCfn->checkSession();
+	require "../../autoloader.php";
 	
-	$db="intradb";
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
+	$cCfn->checkSession();
+	$modulo="logbook";
 	
 	$accion = $_GET["accion"] ?? $_POST["accion"] ?? '';
 	$clasificacion = $_GET["clasificacion"] ?? $_POST["clasificacion"] ?? '';
@@ -42,14 +40,6 @@
 		exit;
 	}
 	
-	/* if ( ($clasificacion == "") or ($severidad == ""))
-	{
-	  echo" <script languaje=javascript>alert('Debe completar los campos obligatorios --- 1 $clasificacion --- 2 $severidad')</script>";
-	  echo "marcador 2 <br>";
-	  include_once("crear_bitacora_gsm.php");
-	  exit;
-	} */
-	
 	if( $clasificacion == "FALLA" && empty($falla) ){
 		echo" <script languaje=javascript>alert('Debe completar los campos obligatorios')</script>";
 		include_once("crear_bitacora_gsm.php");
@@ -71,20 +61,10 @@
 		$titulo=$clasificacion . " " . $titulo;
 	}
 	
-	$params = [
-		":titulo" => $titulo,
-		":usr" => $usr,
-		":tipo" => $tipo,
-		":severidad" => $severidad,
-		":lista" => NULL,
-		":bit_class" => $clasificacion,
-		":usr" => $usr 
-	];
-	$sql=$cCfn->getQuery("nueva_bit_opersis", $params);
-	// echo "sql nueva_bit_opersis: ".$sql."<br/>";
-	$result = $cCfn->exeQuery($sql,$db);
+	$params = [ $titulo, $usr, $tipo, $severidad, NULL, $clasificacion, $usr ];
+	$types="ssiisss";
+	$result = $cCfn->exeQuery("nueva_bit_opersis",$params,$types,$cCfn->getLocal(),null,$modulo);
 	
-	//$id=mysqli_insert_id();
 	$id=$result["insert_id"];
 	
 	
@@ -105,23 +85,15 @@
 	#####################################################################
 	
 	if( !empty($comentario) ){
-		$params = [
-			":usr" => $usr,
-			":comentario" => $comentario,
-			":id" => $id 
-		];
-		$sql=$cCfn->getQuery("nueva_bit_comment", $params);
-		// echo "sql nueva_bit_comment: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $usr, $comentario, $id ];
+		$types="ssi";
+		$result = $cCfn->exeQuery("nueva_bit_comment",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	if( $cerrar=="C" ){
-		$params = [
-			":id" => $id 
-		];
-		$sql=$cCfn->getQuery("update_bit", $params);
-		// echo "sql update_bit: ".$sql."<br/>";
-		$result = $cCfn->exeQuery($sql,$db);
+		$params = [ $id ];
+		$types="i";
+		$result = $cCfn->exeQuery("update_bit",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	
@@ -130,65 +102,36 @@
 		foreach( $sitio as $key => $value ){
 			$lista.=$value."/";
 			
-			$params = [
-				":id" => $id, 
-				":value" => addslashes($value)
-			];
-			$sql=$cCfn->getQuery("nueva_bit_bitSitio", $params);
-			// echo "sql nueva_bit_bitSitio: ".$sql."<br/>";
-			$result = $cCfn->exeQuery($sql,$db);
+			$params = [ $id, addslashes($value) ];
+			$types="is";
+			$result = $cCfn->exeQuery("nueva_bit_bitSitio",$params,$types,$cCfn->getLocal(),null,$modulo);
 			
 			##########################################################################
 			
 			$site=trim(substr($value,0,6));
-			$params = [
-				":id" => $id, 
-				":site" => $site
-			];
-			$sql=$cCfn->getQuery("update_bit4", $params);
-			// echo "sql update_bit4: ".$sql."<br/>";
-			$result = $cCfn->exeQuery($sql,$db);
+			$params = [ $id, $site ];
+			$types="is";
+			$result = $cCfn->exeQuery("update_bit4",$params,$types,$cCfn->getLocal(),null,$modulo);
 			$log="Insertando desde .../logbook/nueva_bitacora.php -- $sql ";
 			// my_log($log);
 			$cCfn->my_log($log);
 			
-			#######
-			## CVZ
-			## 23-06-2017
-			## Modificacion: Se agrega logica de actualizacion de tablas act_alarm_panel_TEC, id bitacora| titulo, inicio 
-			#######
-			$params = [
-				":id" => $id 
-			];
-			$sql=$cCfn->getQuery("select_bit", $params);
-			// echo "sql select_bit: ".$sql."<br/>";
-			$row_act = $cCfn->exeQuery($sql,$db);
+			$params = [ $id ];
+			$types="i";
+			$result = $cCfn->exeQuery("select_bit",$params,$types,$cCfn->getLocal(),null,$modulo);
 			$ss = substr($site, 1, 5);
 			
-			$params = [
-				":id" => $id,
-				":titulo" => $titulo,
-				":inicio" => $inicio,
-				":ss" => $ss
-			];
-			$sql=$cCfn->getQuery("update_2g", $params);
-			$cCfn->exeQuery($sql,$db);
+			$params = [ $id, $titulo, $inicio, $ss ];
+			$types="isss";
+			$result = $cCfn->exeQuery("update_2g",$params,$types,$cCfn->getLocal(),null,$modulo);
 			
-			$params = [
-				":id" => $id,
-				":titulo" => $titulo,
-				":inicio" => $inicio,
-				":ss" => $ss
-			];
-			$sql=$cCfn->getQuery("update_3g", $params);
-			$cCfn->exeQuery($sql,$db);
+			$params = [ $id, $titulo, $inicio, $ss ];
+			$types="isss";
+			$result = $cCfn->exeQuery("update_3g",$params,$types,$cCfn->getLocal(),null,$modulo);
 			
-			$params = [
-				":id" => $id,
-				":ss" => $ss
-			];
-			$sql=$cCfn->getQuery("update_4g", $params);
-			$cCfn->exeQuery($sql,$db);
+			$params = [ $id, $ss ];
+			$types="is";
+			$result = $cCfn->exeQuery("update_4g",$params,$types,$cCfn->getLocal(),null,$modulo);
 			
 			##########################################################################
 		}
@@ -197,68 +140,45 @@
 	if( !empty($nodo) ){
 		foreach($nodo as $key => $value){
 			$lista.=$value."/";
-			$params = [
-				":id" => $id,
-				":servicio" => $value
-			];
-			$sql=$cCfn->getQuery("nueva_bit_opersis2", $params);
-			$cCfn->exeQuery($sql,$db);
+			$params = [ $id, $value ];
+			$types="is";
+			$result = $cCfn->exeQuery("nueva_bit_opersis2",$params,$types,$cCfn->getLocal(),null,$modulo);
 		}
 	}
 	
 	if( !empty($servicio) ){
 		foreach($servicio as $key => $value){
 			$lista.=$value."/";
-			$params = [
-				":id" => $id,
-				":elemento" => $value
-			];
-			$sql=$cCfn->getQuery("nueva_bit_opersis3", $params);
-			$cCfn->exeQuery($sql,$db);
+			$params = [ $id, $value ];
+			$types="is";
+			$result = $cCfn->exeQuery("nueva_bit_opersis3",$params,$types,$cCfn->getLocal(),null,$modulo);
 		}
 	}
 	
-	$params = [
-		":id" => $id,
-		":lista" => $lista
-	];
-	$sql=$cCfn->getQuery("update_bit5", $params);
-	$cCfn->exeQuery($sql,$db);
-	
+	$params = [ $id, $lista ];
+	$types="is";
+	$result = $cCfn->exeQuery("update_bit5",$params,$types,$cCfn->getLocal(),null,$modulo);
 	
 	if( !empty($ihour) && !empty($iminute) ){
 		$time=$iyear . "-" . $imonth . "-" . $iday . " " . $ihour . ":" . $iminute . ":00";	
-		$params = [
-			":id" => $id,
-			":time" => $time
-		];
-		$sql=$cCfn->getQuery("update_bit2", $params);
-		$cCfn->exeQuery($sql,$db);
+		$params = [ $id, $time ];
+		$types="is";
+		$result = $cCfn->exeQuery("update_bit2",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 
 	if( !empty($fhour) && !empty($fminute) ){
 		$time=$fyear . "-" . $fmonth . "-" . $fday . " " . $fhour . ":" . $fminute . ":00";
-		$params = [
-			":id" => $id,
-			":time" => $time
-		];
-		$sql=$cCfn->getQuery("update_bit3", $params);
-		$cCfn->exeQuery($sql,$db);
+		$params = [ $id, $time ];
+		$types="is";
+		$result = $cCfn->exeQuery("update_bit3",$params,$types,$cCfn->getLocal(),null,$modulo);
 	}
 	
 	?>
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Bitacora</title>
-			<?php include_once("../../protected/style.php") ?>
-		</head>
-		<body>
-			<form name='test' action='mi_bitacora.php' method='post'>
-				Bitacora <?php echo $id; ?> creada.
-				<p>
-					<input name='accion' type='submit' value='Volver' >
-				</p>
-			</form>
-		</body>
-	</html>
+	<title>Bit&aacute;cora</title>
+	<form name='test' action='mi_bitacora.php' method='post'>
+		Bitacora <?php echo $id; ?> creada.
+		<p>
+			<input name='accion' type='submit' value='Volver' >
+		</p>
+	</form>
+	

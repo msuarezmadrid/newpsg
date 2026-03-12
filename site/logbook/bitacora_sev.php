@@ -49,5 +49,6 @@
 	</form>
 	<?php
 		$params = [ $severidad ];
+		$types="i";
 		$sql="sel_bit_sev";
 		ver_bitacora($sql,$logged_usr,$modo_bitacora); ?>

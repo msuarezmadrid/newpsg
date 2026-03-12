@@ -71,14 +71,6 @@
 				return false;
 			}
 			
-			/* if (!file_exists($qryFile)) {
-				throw new \Exception("Msg->No existe o no se encuentra el archivo querys.php");
-			}
-			$queries = require $qryFile; // Incluye el archivo, suponiendo que contiene un array $query
-			if (!is_array($queries)) {
-				throw new \Exception("Msg->Error al cargar queries, formato incorrecto.");
-			}
-			$this->queries = $queries; // Guarda el array en la propiedad de la clase */
 		}
 		
 		function getConfig(){
@@ -154,6 +146,8 @@
 					throw new \Exception("No se pudo conectar a la base de datos.");
 				}
 				
+				// $this->my_log(__FUNCTION__ . " query0: [$query] " );
+				
 				// Preparar la consulta
 				$stmt = $this->activeConn->prepare($query);
 				if (!$stmt) {
@@ -169,7 +163,7 @@
 					$stmt->bind_param($types, ...$params);
 				}
 				
-				// $this->my_log(__FUNCTION__ . " query: [$query] " );
+				$this->my_log(__FUNCTION__ . " query1: [$query] " );
 				
 				// Ejecutar la consulta
 				if (!$stmt->execute()) {

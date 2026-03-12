@@ -1,9 +1,14 @@
 <?php
-	include_once("../../protected/classFunciones.php");
 	session_start();
-	$cCfn = new classFunciones();
+	require "../../autoloader.php";
+	
+	use App\Componentes\DependencyContainer;
+
+    $container = new DependencyContainer();
+	$cCfn = $container->getFunciones();
 	$cCfn->checkSession();
-	$db="intradb";
+	$modulo="logbook";
+	$base_path=BASE_URL . "/site/logbook";
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	
@@ -18,11 +23,8 @@
 			switch ($id_tipo){
 				case 1:{# PLANNED
 					# ********* RESCATAR BITACORA SI EL TP TUVIERA ***********************************************
-					$params = [
-						":assoc_id" => $txt_tarea
-					];
-					$sql=$cCfn->getQuery("asoc_tp", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $txt_tarea ];
+					$result = $cCfn->exeQuery("asoc_tp",$params,'i',$cCfn->getLocal(),null,$modulo);
 					if ( !empty($row) ){
 						$res = 'SI';
 					}else{
@@ -33,11 +35,8 @@
 				}
 				case 2:{# PROBLEMA
 					# ********* RESCATAR BITACORA SI EL TP TUBIERA ***********************************************
-					$params = [
-						":assoc_id" => $txt_tarea
-					];
-					$sql=$cCfn->getQuery("asoc_pid", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $txt_tarea ];
+					$result = $cCfn->exeQuery("asoc_pid",$params,'i',$cCfn->getLocal(),null,$modulo);
 					if ( !empty($row) ){
 						$res = 'SI';
 					}else{
@@ -48,11 +47,8 @@
 				}
 				case 3:{# TAREA
 					# ********* RESCATAR BITACORA SI EL TP TUBIERA ***********************************************
-					$params = [
-						":assoc_id" => $txt_tarea
-					];
-					$sql=$cCfn->getQuery("asoc_tar", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $txt_tarea ];
+					$result = $cCfn->exeQuery("asoc_tar",$params,'i',$cCfn->getLocal(),null,$modulo);
 					if ( !empty($row) ){
 						$res = 'SI';
 					}else{
@@ -63,11 +59,8 @@
 				}
 				case 4:{//SC
 					# ********* RESCATAR BITACORA SI EL TP TUBIERA ***********************************************
-					$params = [
-						":assoc_id" => $txt_tarea
-					];
-					$sql=$cCfn->getQuery("asoc_sc", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $txt_tarea ];
+					$result = $cCfn->exeQuery("asoc_sc",$params,'i',$cCfn->getLocal(),null,$modulo);
 					if ( !empty($row) ){
 						$res = 'SI';
 					}else{
@@ -84,25 +77,16 @@
 			$res="NO";
 			switch ($id_tipo){
 				case 1:{# PLANNED
-					$params = [
-						":id_bitacora" => $id_bitacora,
-						":txt_tarea" => $txt_tarea,
-						":id_tipo" => $id_tipo
-					];
-					$sql=$cCfn->getQuery("doc_bit_asoc", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $id_bitacora, $txt_tarea, $id_tipo ];
+					$result = $cCfn->exeQuery("doc_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 					if ( empty($row) ){
 						# ************** INSERTAR EN LOG ****************
-						$sql=$cCfn->getQuery("ins_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$result = $cCfn->exeQuery("ins_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 						# ***********************************************
 						# ********** RESCATAR BITACORA SI EL TP TUBIERA ***********************************************
 						$bitacora = null;
-						$params = [
-							":assoc_id" => $txt_tarea
-						];
-						$sql=$cCfn->getQuery("asoc_bit_tp", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$params = [ $txt_tarea ];
+						$result = $cCfn->exeQuery("asoc_bit_tp",$params,'i',$cCfn->getLocal(),null,$modulo);
 						if ( !empty($row) ){
 							$bitacora = $row[0]['ID'];
 						}else{
@@ -111,16 +95,8 @@
 						# *********************************************************************************************
 							
 						# *********** INSERTAR EN CONSOLIDADO ***********
-						$params = [
-							":pid" => 0,
-							":txt_tarea" => $txt_tarea,
-							":tar" => 0,
-							":bitacora" => $bitacora,
-							":sc" => 0,
-							":id_bitacora" => $id_bitacora
-						];
-						$sql=$cCfn->getQuery("ins_conso_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$params = [ 0, $txt_tarea, 0, $bitacora, 0, $id_bitacora ];
+						$result = $cCfn->exeQuery("ins_conso_bit_asoc",$params,'iiiiii',$cCfn->getLocal(),null,$modulo);
 						# ***********************************************
 						$res="SI";
 					}else{
@@ -130,26 +106,17 @@
 					break;
 				}
 				case 2:{# PROBLEMA
-					$params = [
-						":id_bitacora" => $id_bitacora,
-						":txt_tarea" => $txt_tarea,
-						":id_tipo" => $id_tipo
-					];
-					$sql=$cCfn->getQuery("doc_bit_asoc", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $id_bitacora, $txt_tarea, $id_tipo ];
+					$result = $cCfn->exeQuery("doc_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 					if ( empty($row) ){
 						# ********************* INSERTAR EN LOG *************************
-						$sql=$cCfn->getQuery("ins_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$result = $cCfn->exeQuery("ins_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 				
 						# ********** RESCATAR BITACORA SI EL TP TUVIERA ***********************************************
 						$bitacora = null;
-						$params = [
-							":assoc_id" => $txt_tarea
-						];
-						$sql=$cCfn->getQuery("asoc_bit_pid", $params);
-						$row = $cCfn->exeQuery($sql,$db);
+						$params = [ $txt_tarea ];
+						$result = $cCfn->exeQuery("asoc_bit_pid",$params,'i',$cCfn->getLocal(),null,$modulo);
 						if ( !empty($row) ){
 							$bitacora = $row[0]['ID'];
 						}else{
@@ -157,16 +124,8 @@
 						}
 						# *********************************************************************************************
 						# ****************** INSERTAR EN CONSOLIDADO ********************
-						$params = [
-							":pid" => $txt_tarea,
-							":txt_tarea" => 0,
-							":tar" => 0,
-							":bitacora" => $bitacora,
-							":sc" => 0,
-							":id_bitacora" => $id_bitacora
-						];
-						$sql=$cCfn->getQuery("ins_conso_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$params = [ $txt_tarea, 0, 0, $bitacora, 0, $id_bitacora ];
+						$result = $cCfn->exeQuery("ins_conso_bit_asoc",$params,'iiiiii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 						$res="SI";
 					}else{
@@ -176,25 +135,16 @@
 					break;
 				}
 				case 3:{# TAREA
-					$params = [
-						":id_bitacora" => $id_bitacora,
-						":txt_tarea" => $txt_tarea,
-						":id_tipo" => $id_tipo
-					];
-					$sql=$cCfn->getQuery("doc_bit_asoc", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $id_bitacora, $txt_tarea, $id_tipo ];
+					$result = $cCfn->exeQuery("doc_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 					if ( empty($row) ){
 						# ********************* INSERTAR EN LOG *************************
-						$sql=$cCfn->getQuery("ins_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$result = $cCfn->exeQuery("ins_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 						# ********************* RESCATAR BITACORA SI EL TP TUVIERA ************************************
 						$bitacora = null;
-						$params = [
-							":assoc_id" => $txt_tarea
-						];
-						$sql=$cCfn->getQuery("asoc_bit_tar", $params);
-						$row = $cCfn->exeQuery($sql,$db);
+						$params = [ $txt_tarea ];
+						$result = $cCfn->exeQuery("asoc_bit_tar",$params,'i',$cCfn->getLocal(),null,$modulo);
 						if ( !empty($row) ){
 							$bitacora = $row[0]['ID'];
 						}else{
@@ -202,16 +152,8 @@
 						}
 						# *********************************************************************************************
 						# ****************** INSERTAR EN CONSOLIDADO ********************
-						$params = [
-							":pid" => 0,
-							":txt_tarea" => 0,
-							":tar" => $txt_tarea,
-							":bitacora" => $bitacora,
-							":sc" => 0,
-							":id_bitacora" => $id_bitacora
-						];
-						$sql=$cCfn->getQuery("ins_conso_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$params = [ 0, 0, $txt_tarea, $bitacora, 0, $id_bitacora ];
+						$result = $cCfn->exeQuery("ins_conso_bit_asoc",$params,'iiiiii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 						$res="SI";
 					}else{
@@ -221,25 +163,16 @@
 					break;
 				}
 				case 4:{//SC
-					$params = [
-						":id_bitacora" => $id_bitacora,
-						":txt_tarea" => $txt_tarea,
-						":id_tipo" => $id_tipo
-					];
-					$sql=$cCfn->getQuery("doc_bit_asoc", $params);
-					$row = $cCfn->exeQuery($sql,$db);
+					$params = [ $id_bitacora, $txt_tarea, $id_tipo ];
+					$result = $cCfn->exeQuery("doc_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 					if ( empty($row) ){
 						# ****************** INSERTAR EN LOG ****************************
-						$sql=$cCfn->getQuery("ins_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$result = $cCfn->exeQuery("ins_bit_asoc",$params,'iii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 						# ****************** RESCATAR BITACORA SI EL TP TUVIERA ***************************************
 						$bitacora = null;
-						$params = [
-							":assoc_id" => $txt_tarea
-						];
-						$sql=$cCfn->getQuery("asoc_bit_sc", $params);
-						$row = $cCfn->exeQuery($sql,$db);
+						$params = [ $txt_tarea ];
+						$result = $cCfn->exeQuery("asoc_bit_sc",$params,'i',$cCfn->getLocal(),null,$modulo);
 						if ( !empty($row) ){
 							$bitacora = $row[0]['ID'];
 						}else{
@@ -247,16 +180,8 @@
 						}
 						# *********************************************************************************************
 						# ******************* INSERTAR EN CONSOLIDADO *******************
-						$params = [
-							":pid" => 0,
-							":txt_tarea" => 0,
-							":tar" => 0,
-							":bitacora" => $bitacora,
-							":sc" => $txt_tarea,
-							":id_bitacora" => $id_bitacora
-						];
-						$sql=$cCfn->getQuery("ins_conso_bit_asoc", $params);
-						$result = $cCfn->exeQuery($sql,$db);
+						$params = [ 0, 0, 0, $bitacora, $txt_tarea, $id_bitacora ];
+						$result = $cCfn->exeQuery("ins_conso_bit_asoc",$params,'iiiiii',$cCfn->getLocal(),null,$modulo);
 						# ***************************************************************
 						$res="SI";
 					}else{
@@ -271,13 +196,10 @@
 		}
 		case 3:{# TAREA
 			$tabla=null;
-			$params = [
-				":id_bitacora" => $id_bitacora
-			];
-			$sql=$cCfn->getQuery("doc_bit_asoc_tip", $params);
-			$result = $cCfn->exeQuery($sql,$db);
+			$params = [ $id_bitacora ];
+			$result = $cCfn->exeQuery("doc_bit_asoc_tip",$params,'i',$cCfn->getLocal(),null,$modulo);
 			$tabla = "<table border='1' class='sample' width='400' align='center'>";
-			foreach( $result as $row ){
+			while( $row=$result->fetch_assoc() ){
 				$tabla .= "<tr>";
 				$tabla .= 		"<td width='35%' > &nbsp; ".$row['ASOC_ID']." &nbsp;</td>";
 				$tabla .= 		"<td width='65%'> &nbsp;  ".$row['TIPO_NOMBRE']." &nbsp;</td>";
